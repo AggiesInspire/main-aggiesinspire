@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["./src/types"],
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/images/*": ["./public/static/images/*"],
+      "@/videos/*": ["./public/videos/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/ui/*": ["./src/components/ui/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/components/PageWrapper.jsx",
+    "src/components/ui/ImageSlider.tsx",
+    "src/components/ui/data/youtube/SubscriberCount.jsx",
+    "src/lib/fetcher.js",
+    "src/lib/fetcher.js"
+  ],
+  "exclude": ["node_modules"]
+}
