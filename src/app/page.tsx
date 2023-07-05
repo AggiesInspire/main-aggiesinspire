@@ -1,3 +1,5 @@
+import React from "react";
+
 import { ContactUs } from "@/components/ui/sections/ContactUs";
 import Home from "./(home)/Home";
 import { PageWrapper } from "@/components/PageWrapper";

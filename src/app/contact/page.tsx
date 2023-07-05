@@ -1,3 +1,5 @@
+import React from "react";
+
 import type { Metadata } from "next";
 import ContactSection from "@/app/contact/ContactSection";
 import { PageWrapper } from "@/components/PageWrapper";
