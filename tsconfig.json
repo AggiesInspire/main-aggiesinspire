@@ -39,7 +39,8 @@
     "src/components/ui/ImageSlider.tsx",
     "src/components/ui/data/youtube/SubscriberCount.jsx",
     "src/lib/fetcher.js",
-    "src/lib/fetcher.js"
+    "src/lib/fetcher.js",
+    "src/components/ui/text-formatting/CountUp.jsx"
   ],
   "exclude": ["node_modules"]
 }
