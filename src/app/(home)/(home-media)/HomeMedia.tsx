@@ -6,7 +6,10 @@ import Youtube from "./Youtube";
 
 const HomeMedia = () => {
   return (
-    <section id="home-media" className="w-full bg-primary-100">
+    <section
+      id="home-media"
+      className="w-full bg-gradient-to-l from-primary-300 to-primary-400"
+    >
       <div className="mx-auto w-11/12">
         <Heading />
         <Youtube />
