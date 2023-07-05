@@ -21,7 +21,7 @@ export default function CountUp({ end }: Props) {
   // dynamically import and initialize countUp, sets value of `countUpAnim`
   async function initCountUp() {
     const countUpModule = await import("countup.js");
-    countUpAnim = new countUpModule.CountUp(countupRef.current, end);
+    countUpAnim = new countUpModule.CountUp(countupRef.current!, end!);
     if (!countUpAnim.error) {
       countUpAnim.start();
     } else {
