@@ -56,6 +56,27 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const navbarLinks = [
+    {
+      title: "About",
+      link: SelectedPage.About,
+    },
+    {
+      title: "Media",
+      link: SelectedPage.Media,
+    },
+  ];
+
+  const minNavbarLinks = [
+    {
+      title: "Home",
+      link: SelectedPage.Home,
+    },
+    {
+      title: "Contact",
+      link: SelectedPage.Contact,
+    },
+  ];
   return (
     <>
       <nav
@@ -98,27 +119,21 @@ const Navbar = () => {
               <div className={`${flexBetween} w-full`}>
                 <div className={`${flexBetween} gap-8 text-sm`}></div>
                 <div className={`${flexBetween} gap-8 text-sm`}>
-                  {" "}
-                  <Link
-                    href={SelectedPage.About}
-                    className={
-                      scrolled
-                        ? buttonVariants({ variant: "ghost" })
-                        : buttonVariants({ variant: "destructive" })
-                    }
-                  >
-                    About
-                  </Link>
-                  <Link
-                    href={SelectedPage.Media}
-                    className={
-                      scrolled
-                        ? buttonVariants({ variant: "ghost" })
-                        : buttonVariants({ variant: "destructive" })
-                    }
-                  >
-                    Media
-                  </Link>
+                  {/* map out navbarlinks on md above screens */}
+                  {/* {navbarLinks.map((link) => (
+                    <Link
+                      href={link.link}
+                      className={
+                        scrolled
+                          ? buttonVariants({ variant: "ghost" })
+                          : buttonVariants({ variant: "destructive" })
+                      }
+                      key={link.title}
+                    >
+                      {link.title}
+                    </Link>
+                  ))} */}
+
                   <ButtonLink path={SelectedPage.Contact}>
                     <p className="text-lg">Contact Us</p>
                   </ButtonLink>
@@ -135,7 +150,8 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/* Mobile Menu Modal */}
+
+      {/* Mobile Menu Mode */}
       {!isAboveMediumScreens && isMenuToggled && (
         <div className="fixed bottom-0 right-0 z-50 h-full w-[300px] bg-primary-100 drop-shadow-xl ">
           {/* Close Icon */}
@@ -147,11 +163,11 @@ const Navbar = () => {
 
           {/* Menu Items */}
           <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-            <HeaderLink path={SelectedPage.Home}>Home</HeaderLink>
-            <HeaderLink path={SelectedPage.About}>About</HeaderLink>
-            <HeaderLink path={SelectedPage.Media}>Media</HeaderLink>
-            {/* <HeaderLink path={SelectedPage.Programs}>Programs</HeaderLink> */}
-            <HeaderLink path={SelectedPage.Contact}>Contact Us</HeaderLink>
+            {minNavbarLinks.map((link) => (
+              <HeaderLink path={link.link} key={link.title}>
+                {link.title}
+              </HeaderLink>
+            ))}
           </div>
         </div>
       )}
