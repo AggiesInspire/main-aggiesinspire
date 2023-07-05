@@ -16,12 +16,14 @@ module.exports = {
         "gray-50": "#EFE6E6",
         "gray-100": "#DFCCCC",
         "gray-500": "#5E0000",
+        "primary-50": "#FFFBFA",
         "primary-100": "#FEF5F3",
+        "primary-200": "#FFE0D9",
         "primary-300": "#F3D7D0",
+        "primary-400": "#FAC2B4",
         "primary-500": "#FF6B66",
         "secondary-400": "#FFCD5B",
         "secondary-500": "#FFC132",
-        /* Dark mode equivalents below */
       },
 
       display: ["group-hover"],
@@ -31,6 +33,43 @@ module.exports = {
         montserrat: ["Montserrat", "sans-serif"],
       },
       content: {},
+      animation: {
+        "gradient-x": "gradient-x 15s ease infinite",
+        "gradient-y": "gradient-y 15s ease infinite",
+        "gradient-xy": "gradient-xy 15s ease infinite",
+      },
+      keyframes: {
+        "gradient-y": {
+          "0%, 100%": {
+            "background-size": "400% 400%",
+            "background-position": "center top",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "center center",
+          },
+        },
+        "gradient-x": {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+        "gradient-xy": {
+          "0%, 100%": {
+            "background-size": "400% 400%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+      },
     },
     screens: {
       xs: "480px",

@@ -1,11 +1,9 @@
 declare module "*.pdf";
 type ChannelStatistics = {
-  statistics: {
-    viewCount: string;
-    subscriberCount: string;
-    hiddenSubscriberCount: boolean;
-    videoCount: string;
-  };
+  viewCount: string;
+  subscriberCount: string;
+  hiddenSubscriberCount: boolean;
+  videoCount: string;
 };
 /* For testing purposes */
 type User = {
