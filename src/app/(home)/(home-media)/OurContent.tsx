@@ -43,7 +43,7 @@ const OurContent = () => {
 
   const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
   return (
-    <section id="home-media:content" className="w-full bg-primary-100 ">
+    <section id="home-media:content" className="w-full">
       <div className={`mx-auto ${isAboveSmallScreens ? "pb-28" : "pb-10"}`}>
         <div>
           <div
@@ -57,19 +57,21 @@ const OurContent = () => {
                 height: "3px",
               }}
             />
-            <LargeHeading size={"xs"} className="py-10 pl-2">
+            <LargeHeading size={"xs"} className="py-20 pl-2">
               OUR CONTENT
             </LargeHeading>
           </div>
 
           <div
-            className={`${isAboveMediumScreens ? "" : "h-[815] xs:h-[390px]"}`}
+            className={` ${isAboveMediumScreens ? "" : "h-[815] xs:h-[390px]"}`}
           >
-            <Carousel
-              slides={slides}
-              autoSlide={true}
-              autoSlideInterval={3000}
-            />
+            <div className="shadow-lg rounded-sm">
+              <Carousel
+                slides={slides}
+                autoSlide={true}
+                autoSlideInterval={3000}
+              />
+            </div>
           </div>
         </div>
       </div>

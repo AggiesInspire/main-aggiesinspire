@@ -26,11 +26,11 @@ export const ContactUs = () => {
   return (
     <section
       id="contactus"
-      className={`mx-auto w-11/12 ${
+      className={` bg-gradient-to-r from-primary-100 to-primary-50 ${
         isAboveSmallScreens ? "pb-32 pt-24" : "pb-16 pt-12"
       } `}
     >
-      <motion.div>
+      <motion.div className="mx-auto w-11/12">
         {/* Header */}
         <div className="md: w-3/5">
           <LargeHeading size={"xl"}>
@@ -38,7 +38,7 @@ export const ContactUs = () => {
               <TypeWriter
                 text="Get Involved"
                 Markup={"span"}
-                interval={100}
+                interval={50}
               ></TypeWriter>
             </InViewEffect>
           </LargeHeading>
