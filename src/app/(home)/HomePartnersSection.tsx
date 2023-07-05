@@ -10,6 +10,7 @@ const HomeSponsorSection = () => {
 
   const partners = [
     {
+      name: "The Base Chicago",
       image: (
         <a href="https://www.thebasechi.org/" target="_blank">
           <Image alt="ccf-partner" src={PartnerTheBaseChicago} height="80" />
@@ -17,6 +18,7 @@ const HomeSponsorSection = () => {
       ),
     },
     {
+      name: "Chicago Chess Foundation",
       image: (
         <a href="https://chicagochessfoundation.org/" target="_blank">
           <Image alt="ccf-partner" src={PartnerCCF} height="75" />
@@ -50,7 +52,7 @@ const HomeSponsorSection = () => {
                   />
                 </a>
                 {partners.map((partner) => (
-                  <div>{partner.image} </div>
+                  <div key={partner.name}>{partner.image} </div>
                 ))}
               </div>
             </div>
