@@ -22,15 +22,18 @@ const Navbar = () => {
       setScrolled(true);
     }
   };
-  /* makes sure that if the page is refreshed the navbar style is correct based on scrollY position */
-  window.onload = () => {
-    /* call onLoad function on refresh and remove the refresh session so that it can be repeated */
-    var reloading = sessionStorage.getItem("reloading");
-    if (reloading) {
-      sessionStorage.removeItem("reloading");
-      onLoad();
-    }
-  };
+  // /* makes sure that if the page is refreshed the navbar style is correct based on scrollY position */
+  if (typeof window != "undefined") {
+    window.onload = () => {
+      /* call onLoad function on refresh and remove the refresh session so that it can be repeated */
+      var reloading = sessionStorage.getItem("reloading");
+      if (reloading) {
+        sessionStorage.removeItem("reloading");
+        onLoad();
+      }
+    };
+  }
+
   const flexBetween = "flex items-center justify-between";
 
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
