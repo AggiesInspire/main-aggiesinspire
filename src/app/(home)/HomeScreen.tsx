@@ -9,14 +9,22 @@ import Paragraph, {
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { SelectedPage } from "@/components/types";
 
+import VideoNavbar from "@/components/ui/navbars/VideoNavbar";
+
+
 const HomeSection = () => {
   const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
+  const navbarLinks = [ {title: "About", link: SelectedPage.About} ];
+  const miniNavbarLinks = [{title: "Home", link: SelectedPage.Home},
+  {title: "About", link: SelectedPage.About}]
 
   /* The positioning of these items are not ideal. I would like for the text elements and button to dynamically be positioned in the middle
   however, I cannot seem to get that to work, so this current format will suffice for now. This comment is here so that in the future, the positioning
   will adjusted so that it will be in the ideal state. */
 
   return (
+  <>
+  <VideoNavbar miniNavbarLinks={miniNavbarLinks} navbarLinks={navbarLinks} />
     <section id="home-screen">
       <div className="relative">
         <video className="w-full" autoPlay playsInline loop muted>
@@ -54,6 +62,7 @@ const HomeSection = () => {
 
       {/* Actions */}
     </section>
+      </>
   );
 };
 

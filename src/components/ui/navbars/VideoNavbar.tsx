@@ -1,10 +1,9 @@
 "use client";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { motion, useSpring, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import Logo from "@/images/Logo.png";
-import Logo2 from "@/images/Logo2.png";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { useEffect, useState, useRef } from "react";
+import {  useState, } from "react";
 import HeaderLink from "@/components/links/HeaderLink";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,82 +16,24 @@ import { buttonVariants } from "../Button";
 type Props = {
   navbarLinks?: any;
   miniNavbarLinks?: any;
-  appearScroll: number;
-  onTop?: boolean;
 }
-const Navbar = ({navbarLinks, miniNavbarLinks, appearScroll, onTop }: Props)  => {
-  useEffect(() => {
-      window.addEventListener("unload", checkOnLoad);
-      return () => window.removeEventListener("unload", checkOnLoad);
-      }, []);
-
-  
-  const checkOnLoad = () => {
-    console.log("beforeunload")
-      const onLoad = () => {
-    console.log(window.scrollY);
-    if (window.scrollY <= appearScroll) {
-      setScrolled(false);
-    } else {
-      setScrolled(true);
-    }
-  };
-  if (typeof window != "undefined") {
-    window.onload = () => {
-      /* call onLoad function on refresh and remove the refresh session so that it can be repeated */
-      var reloading = sessionStorage.getItem("reloading");
-      if (reloading) {
-        sessionStorage.removeItem("reloading");
-        onLoad();
-      }
-    };
-  }
-
-
-  }
+const VideoNavbar = ({navbarLinks, miniNavbarLinks }: Props)  => {
   // /* makes sure that if the page is refreshed the navbar style is correct based on scrollY position */
   const flexBetween = "flex items-center justify-between";
-
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-  const [scrolled, setScrolled] = useState(false);
-  /* see if home-video id exists for navbar formatting */
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY <= appearScroll) {
-        setScrolled(false);
-      } else {
-        setScrolled(true);
-      }
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
 
   return (
     <>
+      <nav
+        className={
+             `bg-transparent backdrop-filter  absolute z-50 w-full py-6 h-20 ${flexBetween}`
+        }
+      >
         <motion.div
-          className="fixed h-1 bg-gray-500 top-0 left-0 right-0 origin-left z-50"
-          style={{ scaleX }}
+          className="h-1 bg-gray-500 top-0 left-0 right-0 origin-left z-50"
         />
-
-        { scrolled || onTop  ? (
-
-
-            <motion.nav
-            className={
-             `bg-primary-100 backdrop-filter backdrop-blur-lg bg-opacity-80 fixed z-10 w-full py-6 h-20 ${flexBetween}`
-            }
-            >
-        <div className={`${flexBetween}  mx-auto w-11/12`}>
+        <div className={`${flexBetween} mx-auto w-11/12`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* Left Side */}
             <Link href={SelectedPage.Home}>
@@ -115,7 +56,7 @@ const Navbar = ({navbarLinks, miniNavbarLinks, appearScroll, onTop }: Props)  =>
                     (<Link
                       href={link.link}
                       className={
-                           buttonVariants({ variant: "ghost" })
+                           buttonVariants({ variant: "destructive" })
                       }
                       key={link.title}
                     >
@@ -139,8 +80,7 @@ const Navbar = ({navbarLinks, miniNavbarLinks, appearScroll, onTop }: Props)  =>
             )}
           </div>
         </div>
-        </motion.nav>
-        ) : (<div></div>) }
+      </nav>
 
       {/* Mobile Menu Mode */}
       {!isAboveMediumScreens && isMenuToggled && (
@@ -166,4 +106,4 @@ const Navbar = ({navbarLinks, miniNavbarLinks, appearScroll, onTop }: Props)  =>
   );
 };
 
-export default Navbar;
+export default VideoNavbar;
