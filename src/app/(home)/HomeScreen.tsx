@@ -26,12 +26,11 @@ const HomeSection = () => {
   <>
   <VideoNavbar miniNavbarLinks={miniNavbarLinks} navbarLinks={navbarLinks} />
     <section id="home-screen">
-      <div className="relative">
-        <video className="w-full" autoPlay playsInline loop muted>
-          <source src="/videos/website_home_video.mp4" type="video/mp4" />
-        </video>
-
-        <div
+      <div className="relative" >
+      <div className="overflow-hidden aspect-video pointer-events-none">
+<iframe style={{width: "300%",height: "100%", marginLeft: "-100%"}} src="https://www.youtube.com/embed/lftcPmaELss?autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&playlist=lftcPmaELss" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div> 
+       <div
           className={
             isAboveMediumScreens
               ? "w-5/6 absolute top-1 mt-28 right-7"
