@@ -19,6 +19,7 @@
     "@types/react-dom": "18.0.11",
     "@vercel/analytics": "^0.1.11",
     "class-variance-authority": "^0.4.0",
+    "classnames": "^2.3.2",
     "clsx": "^1.2.1",
     "countup.js": "^2.7.0",
     "eslint": "8.37.0",
