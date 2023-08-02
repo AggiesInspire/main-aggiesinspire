@@ -40,6 +40,8 @@ const Carousel = ({
       >
         {slides.map((slide: any, slideIndex: number) => (
           <Image
+            priority={true}
+            placeholder="blur"
             key={slideIndex}
             className={`${isAboveMediumScreens ? "rounded-xl" : "rounded-md"} `}
             src={slide.image}

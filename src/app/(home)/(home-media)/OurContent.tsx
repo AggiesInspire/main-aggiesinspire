@@ -7,6 +7,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { MediaSectionsType, SelectedPage } from "@/components/types";
 import LargeHeading from "@/components/ui/text-formatting/LargeHeading";
 import Carousel from "@/components/ui/Carousel";
+import InViewEffect from "@/components/ui/text-formatting/InViewEffect";
 
 import inspiringSeries from "@/images/InspiringSeriesGraphic.jpeg";
 import collegeAdviceSeries from "@/images/CollegeAdviceSeries.jpeg";
@@ -61,14 +62,13 @@ const OurContent = () => {
               OUR CONTENT
             </LargeHeading>
           </div>
-
           <div
             className={` ${isAboveMediumScreens ? "" : "h-[815] xs:h-[390px]"}`}
           >
             <div className="shadow-lg rounded-sm">
               <Carousel
                 slides={slides}
-                autoSlide={true}
+                autoSlide={isAboveSmallScreens ? true : false}
                 autoSlideInterval={3000}
               />
             </div>
