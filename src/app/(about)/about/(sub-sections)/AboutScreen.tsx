@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 
 import VideoNavbar from "@/components/ui/navbars/VideoNavbar";
-import backgroundImage from "@/images/backgrounds/cindy-liu-toinspire.jpg";
+import backgroundImage from "@/images/Backgrounds/cindy-liu-toinspire.jpg";
 import { AboutSelectedPage } from "@/components/types";
 import { SelectedPage } from "@/components/types";
 import LargeHeading from "@/components/ui/text-formatting/LargeHeading";
