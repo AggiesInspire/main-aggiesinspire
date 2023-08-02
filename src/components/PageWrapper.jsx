@@ -8,16 +8,15 @@ export const PageWrapper = ({ children }) => {
   const wrapperVariants = {
     initial: {
       opacity: 0,
-      clipPath: "polygon(100% 0, 100% 0%, 100% 0%, 100% 61%)",
+      clipPath: "polygon(0 0, 0 0%, 0 100%, 0% 100%)",
     },
     animate: {
       opacity: 1,
-      clipPath: "polygon(0 0, 100% 0%, 100% 100%, 0 100%)",
+      clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
     },
-    // Exit does not work at the moment
-    // exit: {
-    //   clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 100%)",
-    // },
+     exit: {
+       clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 100%)",
+     },
   };
   return (
     <>
