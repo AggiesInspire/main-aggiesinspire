@@ -46,7 +46,7 @@ export enum MediaSelectedPage {
 
 /* For ABOUT section */
 export enum AboutSelectedPage {
-  Informational = "informational",
+  Rationale = "rationale",
   Mission = "mission",
   Governance = "governance",
   Operations = "operations",

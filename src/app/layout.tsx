@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import Navbar from "@/components/ui/navbars/Navbar";
 import Footer from "@/components/ui/sections/Footer";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
@@ -32,8 +31,6 @@ export default function RootLayout({
       </head>
       <body>
         <div>
-          <Navbar />
-
           <main className="flex flex-col">
             {children}
 

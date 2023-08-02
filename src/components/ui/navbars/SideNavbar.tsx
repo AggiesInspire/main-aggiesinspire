@@ -34,7 +34,9 @@ const SideNavbar = ({ name, selectedPage, setSelectedPage }: Props) => {
                 variant: "outline",
                 size: "outlineLg",
               })}
-              `}
+              ${selectedPage === lowerCasePage
+                  ? "border-primary-500"
+                  : "text-primary-500 border-primary-400"}`}
             >
               {name}
             </AnchorLink>
@@ -47,8 +49,8 @@ const SideNavbar = ({ name, selectedPage, setSelectedPage }: Props) => {
               <ArrowLongDownIcon
                 className={` ${
                   selectedPage === lowerCasePage
-                    ? "border:border-x-0:border-b-0 border-t-2 border-primary-500 text-primary-300 h-6 w-4"
-                    : "border:border-x-0:border-b-0 border-t-2 border-primary-500 h-6 w-4"
+                    ? "border:border-x-0:border-b-0 border-t-2 border-primary-500  h-6 w-4"
+                    : "border:border-x-0:border-b-0 border-t-2 border-primary-400 text-primary-300 h-6 w-4"
                 } `}
               />
             </AnchorLink>
