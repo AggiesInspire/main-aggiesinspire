@@ -11,8 +11,16 @@ body,
   height: 100%;
   width: 100%;
   font-family: "DM Sans", sans-serif;
+  --color-primary: hsl(359, 92%, 63%);
   @apply text-gray-500;
 }
+
+@layer base {
+  body {
+    @apply bg-white;
+  }
+}
+
 iframe {
   width: 100%;
   aspect-ratio: 16 / 9;

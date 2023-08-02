@@ -16,6 +16,7 @@ module.exports = {
         "gray-50": "#EFE6E6",
         "gray-100": "#DFCCCC",
         "gray-500": "#5E0000",
+        primary: "var(--color-primary)",
         "primary-50": "#FFFBFA",
         "primary-100": "#FEF5F3",
         "primary-200": "#FFE0D9",
@@ -24,6 +25,10 @@ module.exports = {
         "primary-500": "#FF6B66",
         "secondary-400": "#FFCD5B",
         "secondary-500": "#FFC132",
+      },
+      backgroundImage: {
+        texture:
+          "url(/public/static/images/backgrounds/glow-texture.png), radial-gradient(var(--color-primary), transparent 70%)",
       },
 
       display: ["group-hover"],
