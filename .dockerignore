@@ -1,0 +1,17 @@
+.gitignore
+.git
+
+node_modules
+
+public/
+
+.next
+.vscode
+
+**.DS_Store
+
+.env.local
+
+README.md
+
+Dockerfile*
