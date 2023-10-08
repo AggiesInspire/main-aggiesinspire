@@ -2,7 +2,6 @@ declare module "*.pdf";
 type ChannelStatistics = {
   viewCount: string;
   subscriberCount: string;
-  hiddenSubscriberCount: boolean;
   videoCount: string;
 };
 /* For testing purposes */
