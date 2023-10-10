@@ -6,8 +6,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 
 import { MediaSectionsType, SelectedPage } from "@/components/types";
 import LargeHeading from "@/components/ui/text-formatting/LargeHeading";
-import Carousel from "@/components/ui/Carousel";
-import InViewEffect from "@/components/ui/text-formatting/InViewEffect";
+import Carousel from "@/components/ui/widgets/Carousel";
 
 import inspiringSeries from "@/images/InspiringSeriesGraphic.jpeg";
 import collegeAdviceSeries from "@/images/CollegeAdviceSeries.jpeg";

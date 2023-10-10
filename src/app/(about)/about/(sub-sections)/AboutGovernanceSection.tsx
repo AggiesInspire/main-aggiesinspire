@@ -12,7 +12,7 @@ import classNames from "classnames";
 
 import useMediaQuery from "@/hooks/useMediaQuery";
 
-import { persons } from "@/components/data/sections/about/aboutGovernanceSection";
+import { board } from "@/data/images/sections/aboutGovernanceSection/board";
 import LargeHeading from "@/components/ui/text-formatting/LargeHeading";
 import TypeWriter from "@/components/ui/text-formatting/TypeWriter";
 import InViewEffect from "@/components/ui/text-formatting/InViewEffect";
@@ -69,11 +69,11 @@ const AboutGovernanceSection = ({ setSelectedPage }: Props) => {
             ref={wrapperRef}
             className="group flex flex-col gap-3 md:gap-[1.5%] md:h-[640px] md:flex-row "
           >
-            {persons.map((person, index) => (
+            {board.map((member, index) => (
               <li
                 onClick={() => setActiveItem(index)}
                 aria-current={activeItem === index}
-                key={person.name}
+                key={member.name}
                 className={classNames(
                   "relative md:flex-none flex justify-between md:cursor-pointer md:w-[14%] md:first:w-[10%] md:last:w-[10%] overflow-hidden md:[&[aria-current='true']]:w-[48%] bg-primary-200 rounded-2xl",
                   "md:[transition:width_var(--transition,200ms_ease-in)]",
@@ -83,8 +83,10 @@ const AboutGovernanceSection = ({ setSelectedPage }: Props) => {
               >
                 <div className="order-2 relative overflow-hidden rounded-2xl md:h-full md:w-full w-24 h-24">
                   <Image
-                    src={person.img}
-                    alt={person.name}
+                    src={member.url}
+                    alt={member.name}
+                    width={500}
+                    height={1200}
                     className="absolute right-0 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-auto w-24 md:h-[640px] md:w-[590px] max-w-none object-cover"
                   ></Image>
                   <div
@@ -104,10 +106,10 @@ const AboutGovernanceSection = ({ setSelectedPage }: Props) => {
                   )}
                 >
                   <p className="text-sm uppercase text-primary md:text-lg">
-                    {person.title}
+                    {member.title}
                   </p>
                   <p className="text-lg font-bold md:text-white md:text-4xl">
-                    {person.name}
+                    {member.name}
                   </p>
                   {isAboveMediumScreens ? (
                     <></>

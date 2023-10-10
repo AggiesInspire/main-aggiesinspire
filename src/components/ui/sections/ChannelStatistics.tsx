@@ -1,6 +1,6 @@
 import React from "react";
-import CountUp from "../../text-formatting/CountUp";
-import InViewEffect from "../../text-formatting/InViewEffect";
+import CountUp from "../text-formatting/CountUp";
+import InViewEffect from "../text-formatting/InViewEffect";
 
 type Props = {
   title: string;

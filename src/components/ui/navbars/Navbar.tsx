@@ -11,7 +11,7 @@ import Image from "next/image";
 import { SelectedPage } from "@/components/types";
 
 import ButtonLink from "@/components/links/ButtonLink";
-import { buttonVariants } from "../Button";
+import { buttonVariants } from "../widgets/Button";
 
 type Props = {
   navbarLinks?: any;

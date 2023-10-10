@@ -1,4 +1,5 @@
-import { PageWrapper } from "@/components/PageWrapper";
+import { PageWrapper } from "@/components/transitions/PageWrapper.jsx";
+
 import "@/styles/globals.css";
 
 export default function RootLayout({
@@ -9,7 +10,7 @@ export default function RootLayout({
   return (
     <PageWrapper>
       <section>
-        <div >{children}</div>
+        <div>{children}</div>
       </section>
     </PageWrapper>
   );

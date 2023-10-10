@@ -3,7 +3,7 @@ import React from "react";
 import { SelectedPage } from "@/components/types";
 import { ContactUs } from "@/components/ui/sections/ContactUs";
 import Home from "./(home)/Home";
-import { PageWrapper } from "@/components/PageWrapper";
+import { PageWrapper } from "@/components/transitions/PageWrapper";
 import Navbar from "@/components/ui/navbars/Navbar";
 
 export default function HomePage() {

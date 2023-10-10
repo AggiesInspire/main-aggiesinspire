@@ -9,7 +9,7 @@ import { ArrowLongDownIcon } from "@heroicons/react/24/solid";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
 /* Button that is in testing phase. May use as standard in the future */
-import { buttonVariants } from "../Button";
+import { buttonVariants } from "../widgets/Button";
 
 type Props = {
   name: string;

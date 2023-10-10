@@ -1,9 +1,9 @@
 import React from "react";
 import { use } from "react";
 
-import ChannelStatistics from "@/components/ui/data/youtube/ChannelStatistics";
+import ChannelStatistics from "@/components/ui/sections/ChannelStatistics";
 
-import getYoutubeChannelStatistics from "@/lib/getYoutubeChannelStatistics";
+import getYoutubeChannelStatistics from "@/requests/getYoutubeChannelStatistics";
 import LargeHeading from "@/components/ui/text-formatting/LargeHeading";
 
 async function channelStatistics() {

@@ -3,8 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import LargeHeading from "@/components/ui/text-formatting/LargeHeading";
-import InViewEffect from "@/components/ui/text-formatting/InViewEffect";
-import TypeWriter from "@/components/ui/text-formatting/TypeWriter";
 import Paragraph from "@/components/ui/text-formatting/Paragraph";
 
 type Props = {};
