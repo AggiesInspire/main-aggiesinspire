@@ -1,10 +1,10 @@
 import React from "react";
 import { use } from "react";
 
-import ChannelStatistics from "@/components/ui/sections/ChannelStatistics";
+import ChannelStatistics from "@/components/sections/ChannelStatistics";
 
 import getYoutubeChannelStatistics from "@/requests/getYoutubeChannelStatistics";
-import LargeHeading from "@/components/ui/text-formatting/LargeHeading";
+import LargeHeading from "@/components/text-formatting/LargeHeading";
 
 async function channelStatistics() {
   let { subscriberCount, viewCount, videoCount } =

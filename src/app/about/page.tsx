@@ -1,16 +1,15 @@
-import React from "react";
-
 import type { Metadata } from "next";
-import { ContactUs } from "@/components/sections/contact/ContactUs";
+
+import Navbar from "@/components/navbars/Navbar";
+import About from "@/app/about/(sub-sections)/About";
 import { SelectedPage } from "@/types/pageTypes";
-import TopNavbar from "@/components/navbars/TopNavbar";
 
 export const metadata: Metadata = {
-  title: "Aggies Inspire | Contact Us",
-  description: "Contact us for volunteering opportunties!",
+  title: "Aggies Inspire | About Us",
+  description: "More information about Aggies Inspire.",
 };
 
-export default function ContactPage() {
+export default function AboutPage() {
   const navbarLinks = [{ title: "About", link: SelectedPage.About }];
   const miniNavbarLinks = [
     { title: "Home", link: SelectedPage.Home },
@@ -19,13 +18,15 @@ export default function ContactPage() {
 
   return (
     <div>
-      <TopNavbar
-        transparent={false}
+      <Navbar
+        appearScroll={200}
         navbarLinks={navbarLinks}
         miniNavbarLinks={miniNavbarLinks}
       />
-      <section id="contact" className=" bg-gray-20 md:h-full md:pb-0">
-        <ContactUs />
+      <section id="about" className="md:h-full md:pb-0">
+        <div>
+          <About />
+        </div>
       </section>
     </div>
   );

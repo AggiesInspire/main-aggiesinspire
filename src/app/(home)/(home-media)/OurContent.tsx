@@ -4,21 +4,23 @@ import React from "react";
 
 import useMediaQuery from "@/hooks/useMediaQuery";
 
-import { MediaSectionsType, SelectedPage } from "@/components/types";
-import LargeHeading from "@/components/ui/text-formatting/LargeHeading";
-import Carousel from "@/components/ui/widgets/Carousel";
+import { MediaType } from "../../../../types/mediaPageTypes";
+import { SelectedPage } from "../../../../types/pageTypes";
+
+import LargeHeading from "@/components/text-formatting/LargeHeading";
+import Carousel from "@/components/widgets/Carousel";
 
 import inspiringSeries from "@/images/InspiringSeriesGraphic.jpeg";
 import collegeAdviceSeries from "@/images/CollegeAdviceSeries.jpeg";
 import professionInsightsSeries from "@/images/ProfessionalInsightsSeries.jpeg";
 
 const OurContent = () => {
-  const slides: Array<MediaSectionsType> = [
+  const slides: Array<MediaType> = [
     {
       name: "Inspiring Series",
       description:
         "Current college students and professionals give an overview of their personal backgrounds and field of choice. The videos are generally between 2-5 minutes long",
-      selectedpage: SelectedPage.InspiringSeries,
+      selectedpage: SelectedPage.Youtube,
       url: "https://www.youtube.com/watch?v=F5MFewOymjo&list=PLws4wxg02B74Ux98f7g8LSnL__V-EZkZY",
       image: inspiringSeries,
     },
@@ -26,7 +28,7 @@ const OurContent = () => {
       name: "Professional Insights Series",
       description:
         "Current professionals give an overview of their specialty, what they enjoy and not not enjoy about it, and their analysis of the direction of the field or current unique problems that needs to be solved.",
-      selectedpage: SelectedPage.ProfessionalInsightsSeries,
+      selectedpage: SelectedPage.Youtube,
       url: "https://www.youtube.com/watch?v=w7MMKakAOiM&list=PLws4wxg02B77u0uOoyyxQ5DusOiV82vAB",
       image: professionInsightsSeries,
     },
@@ -34,7 +36,7 @@ const OurContent = () => {
       name: "College Advice - Major Specific Series",
       description:
         "Senior or Junior designated college students give specific advice to those who have similar career aspirations.",
-      selectedpage: SelectedPage.CollegeAdviceSeries,
+      selectedpage: SelectedPage.Youtube,
       url: "https://www.youtube.com/watch?v=vKfUwQRP298&list=PLws4wxg02B74QnsopI9H5mJdQCUWJPC5A",
       image: collegeAdviceSeries,
     },

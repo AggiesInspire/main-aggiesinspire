@@ -27,7 +27,7 @@
       "@/styles/*": ["./src/styles/*"],
       "@/lib/*": ["./src/lib/*"],
       "@/components/*": ["./src/components/*"],
-      "@/ui/*": ["./src/components/ui/*"]
+      "@/types/*": ["./types/*"]
     }
   },
   "include": [
@@ -35,12 +35,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/PageWrapper.jsx",
-    "src/components/ui/ImageSlider.tsx",
-    "src/components/ui/data/youtube/SubscriberCount.jsx",
     "src/lib/fetcher.js",
-    "src/lib/fetcher.js",
-    "src/components/ui/text-formatting/CountUp.jsx"
+    "types/*"
   ],
   "exclude": ["node_modules"]
 }

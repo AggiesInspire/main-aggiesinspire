@@ -1,8 +1,8 @@
 import React from "react";
 
-import TypeWriter from "@/components/ui/text-formatting/TypeWriter";
-import LargeHeading from "@/components/ui/text-formatting/LargeHeading";
-import InViewEffect from "@/components/ui/text-formatting/InViewEffect";
+import TypeWriter from "@/components/text-formatting/TypeWriter";
+import LargeHeading from "@/components/text-formatting/LargeHeading";
+import InViewEffect from "@/components/text-formatting/InViewEffect";
 
 const Heading = () => {
   const heading = "About Us";

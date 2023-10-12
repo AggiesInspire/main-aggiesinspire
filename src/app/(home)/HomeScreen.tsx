@@ -1,15 +1,16 @@
 "use client";
+import Image from "next/image";
+
+import BackgroundVideo from "@/components/sections/home/BackgroundVideo";
 
 import ButtonLink from "@/components/links/ButtonLink";
-import Image from "next/image";
 import HomePageText from "@/images/Home/HomePageText.png";
 import Paragraph, {
   paragraphVariants,
-} from "@/components/ui/text-formatting/Paragraph";
+} from "@/components/text-formatting/Paragraph";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { SelectedPage } from "@/components/types";
-
-import VideoNavbar from "@/components/ui/navbars/VideoNavbar";
+import { SelectedPage } from "@/types/pageTypes";
+import TopNavbar from "@/components/navbars/TopNavbar";
 
 const HomeSection = () => {
   const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
@@ -25,21 +26,10 @@ const HomeSection = () => {
 
   return (
     <>
-      <VideoNavbar
-        miniNavbarLinks={miniNavbarLinks}
-        navbarLinks={navbarLinks}
-      />
+      <TopNavbar miniNavbarLinks={miniNavbarLinks} navbarLinks={navbarLinks} />
       <section id="home-screen">
         <div className="relative">
-          <div className="overflow-hidden aspect-video pointer-events-none">
-            <iframe
-              style={{ width: "300%", height: "100%", marginLeft: "-100%" }}
-              src="https://www.youtube.com/embed/lftcPmaELss?autoplay=1&mute=1&loop=1&color=white&controls=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&playlist=lftcPmaELss"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            ></iframe>
-          </div>
+          <BackgroundVideo />
           <div
             className={
               isAboveMediumScreens

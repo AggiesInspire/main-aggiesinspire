@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { LazyMotion, m, domAnimation, AnimatePresence } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation";
+import { DisableAnimationOnMobile } from "../modify-children/DisableAnimationOnMobile";
 
 export const PageWrapper = ({ children }) => {
   const path = usePathname();
@@ -14,28 +15,30 @@ export const PageWrapper = ({ children }) => {
       opacity: 1,
       clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
     },
-     exit: {
-       clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 100%)",
-     },
+    exit: {
+      clipPath: "polygon(0 0, 100% 0, 100% 100%, 50% 100%)",
+    },
   };
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <AnimatePresence>
-        <motion.div
-          key={path}
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          mode="wait"
-          transition={{
-            delay: 0.25,
-            duration: 0.75,
-          }}
-          variants={wrapperVariants}
-        >
-          {children}
-        </motion.div>
+        <DisableAnimationOnMobile>
+          <m.div
+            key={path}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            mode="wait"
+            transition={{
+              delay: 0.25,
+              duration: 0.75,
+            }}
+            variants={wrapperVariants}
+          >
+            {children}
+          </m.div>
+        </DisableAnimationOnMobile>
       </AnimatePresence>
-    </>
+    </LazyMotion>
   );
 };

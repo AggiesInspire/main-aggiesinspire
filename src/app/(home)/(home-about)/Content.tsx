@@ -2,8 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import LargeHeading from "@/components/ui/text-formatting/LargeHeading";
-import Paragraph from "@/components/ui/text-formatting/Paragraph";
+import LargeHeading from "@/components/text-formatting/LargeHeading";
+import Paragraph from "@/components/text-formatting/Paragraph";
 
 type Props = {};
 

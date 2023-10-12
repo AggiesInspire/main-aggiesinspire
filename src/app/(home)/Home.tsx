@@ -5,13 +5,13 @@ import HomePartnersSection from "./HomePartnersSection";
 
 const Home = () => {
   return (
-      <section id="home-section">
+    <section id="home-section">
       <HomeScreen />
       <HomePartnersSection />
       <HomeAbout />
       <HomeMedia />
-      </section>
-      );
+    </section>
+  );
 };
 
 export default Home;
