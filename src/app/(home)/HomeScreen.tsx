@@ -1,7 +1,5 @@
 "use client";
-import Image from "next/image";
-
-import BackgroundVideo from "@/components/sections/home/BackgroundVideo";
+import BackgroundVideo from "@/sections/home/BackgroundVideo";
 
 import ButtonLink from "@/components/links/ButtonLink";
 import HomePageText from "@/images/Home/HomePageText.png";
@@ -27,40 +25,7 @@ const HomeSection = () => {
   return (
     <>
       <TopNavbar miniNavbarLinks={miniNavbarLinks} navbarLinks={navbarLinks} />
-      <section id="home-screen">
-        <div className="relative">
-          <BackgroundVideo />
-          <div
-            className={
-              isAboveMediumScreens
-                ? "w-5/6 absolute top-1 mt-28 right-7"
-                : "md:flex mx-auto mt-10 w-5/6 items-center justify-center md:h-5/6"
-            }
-          >
-            <Image alt="home-page-text" src={HomePageText} />
-
-            <div>
-              <Paragraph
-                className={`${
-                  isAboveMediumScreens
-                    ? paragraphVariants({ size: "video" })
-                    : paragraphVariants({ size: "default" })
-                } w-3/5`}
-              >
-                We are a 501(c)(3) non-profit based in Texas with the focus to
-                inspire, inform, and encourage the next generation to pursue
-                careers that align with their best interests. Our focus is on
-                the underserved, but we are open to all.
-              </Paragraph>
-            </div>
-            <div className="pt-8 flex gap-8 pb-20">
-              <ButtonLink path={SelectedPage.Contact}>Get Involved</ButtonLink>
-            </div>
-          </div>
-        </div>
-
-        {/* Actions */}
-      </section>
+      <BackgroundVideo />
     </>
   );
 };

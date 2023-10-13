@@ -24,10 +24,11 @@
       "@/*": ["./src/*"],
       "@/images/*": ["./public/static/images/*"],
       "@/videos/*": ["./public/videos/*"],
-      "@/styles/*": ["./src/styles/*"],
+      "@/styles/*": ["./styles/*"],
       "@/lib/*": ["./src/lib/*"],
       "@/components/*": ["./src/components/*"],
-      "@/types/*": ["./types/*"]
+      "@/types/*": ["./types/*"],
+      "@/sections/*": ["./src/components/sections/*"]
     }
   },
   "include": [
@@ -36,7 +37,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/lib/fetcher.js",
-    "types/*"
+    "types/*",
+    "styles/*"
   ],
   "exclude": ["node_modules"]
 }

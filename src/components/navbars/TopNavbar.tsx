@@ -1,4 +1,6 @@
 "use client";
+import { useRouter } from "next/navigation";
+
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import Logo from "@/images/Logo.png";
@@ -22,11 +24,15 @@ const TopNavbar = ({
   miniNavbarLinks,
   transparent = true,
 }: Props) => {
-  // /* makes sure that if the page is refreshed the navbar style is correct based on scrollY position */
   const flexBetween = "flex items-center justify-between";
   const desktopFlexBetween = "md:flex hidden items-center justify-between";
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
+  const router = useRouter();
+
+  const handleNavigation = () => {
+    router.push(SelectedPage.Home);
+  };
 
   return (
     <>
@@ -39,16 +45,16 @@ const TopNavbar = ({
         <div className={`${flexBetween} mx-auto w-11/12`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* Left Side */}
-            <Link href={SelectedPage.Home}>
-              <Image
-                alt="logo"
-                src={Logo}
-                priority={true}
-                width={350}
-                height={200}
-              />
-            </Link>
-
+            <Image
+              alt="logo"
+              src={Logo}
+              priority={true}
+              width={220}
+              height={250}
+              layout="fixed"
+              onClick={handleNavigation}
+              className={"cursor-pointer"}
+            />
             {/* Right Side */}
             <div className={`${desktopFlexBetween} w-full`}>
               <div className={`${flexBetween} gap-8 text-sm`}></div>
@@ -72,7 +78,7 @@ const TopNavbar = ({
               </div>
             </div>
             <button
-              className="md:hidden rounded-full bg-secondary-500 p-2"
+              className="md:hidden bg-primary-500 p-2"
               onClick={() => setIsMenuToggled(!isMenuToggled)}
             >
               <Bars3Icon className="h-6 w-6 text-white" />
@@ -83,7 +89,7 @@ const TopNavbar = ({
 
       {/* Mobile Menu Mode */}
       {!isAboveMediumScreens && isMenuToggled && (
-        <div className="fixed bottom-0 right-0 z-50 h-full w-[300px] bg-primary-100 drop-shadow-xl ">
+        <div className="fixed bottom-0 right-0 z-50 h-full w-[250px] bg-gray-200 backdrop-blur-md bg-opacity-75 rounded-l drop-shadow-xl ">
           {/* Close Icon */}
           <div className="flex justify-end p-12">
             <button onClick={() => setIsMenuToggled(!isMenuToggled)}>

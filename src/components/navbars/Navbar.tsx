@@ -93,7 +93,7 @@ const Navbar = ({ navbarLinks, miniNavbarLinks, appearScroll }: Props) => {
                 </div>
               ) : (
                 <button
-                  className=" rounded-full bg-secondary-500 p-2"
+                  className="  bg-primary-500 p-2"
                   onClick={() => setIsMenuToggled(!isMenuToggled)}
                 >
                   <Bars3Icon className="h-6 w-6 text-white" />
@@ -108,7 +108,7 @@ const Navbar = ({ navbarLinks, miniNavbarLinks, appearScroll }: Props) => {
 
       {/* Mobile Menu Mode */}
       {!isAboveMediumScreens && isMenuToggled && (
-        <div className="fixed bottom-0 right-0 z-50 h-full w-[300px] bg-primary-100 drop-shadow-xl ">
+        <div className="fixed bottom-0 right-0 z-50 h-full w-[220px] bg-primary-100 drop-shadow-xl ">
           {/* Close Icon */}
           <div className="flex justify-end p-12">
             <button onClick={() => setIsMenuToggled(!isMenuToggled)}>

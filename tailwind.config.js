@@ -28,7 +28,7 @@ module.exports = {
       },
       backgroundImage: {
         texture:
-          "url(/public/static/images/backgrounds/glow-texture.png), radial-gradient(var(--color-primary), transparent 70%)",
+          "url(/static/images/backgrounds/glow-texture.png), radial-gradient(var(--color-primary), transparent 70%)",
       },
 
       display: ["group-hover"],

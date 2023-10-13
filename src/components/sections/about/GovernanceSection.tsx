@@ -12,9 +12,6 @@ import { board } from "@/data/images/sections/aboutGovernanceSection/board";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import LargeHeading from "@/components/text-formatting/LargeHeading";
 
-// for future use
-type Props = {};
-
 const GovernanceSection = () => {
   const [activeItem, setActiveItem] = useState(3);
   const wrapperRef = useRef<HTMLUListElement | null>(null);
@@ -45,8 +42,8 @@ const GovernanceSection = () => {
 
   return (
     <section id="governance" className="mx-auto bg-gray-50 pt-20 pb-40">
-      <div className="md:px-10 w-11/12 pb-14">
-        <LargeHeading size={"lg"}></LargeHeading>
+      <div className="md:px-10 pb-14">
+        <LargeHeading size={"xl"}>Governance</LargeHeading>
       </div>
       <div className="flex flex-col h-full w-full items-center justify-center">
         <div className="w-[1200px] max-w-full">
@@ -71,9 +68,9 @@ const GovernanceSection = () => {
                     src={member.url}
                     alt={member.name}
                     width={500}
-                    height={1200}
+                    height={640}
                     className="absolute right-0 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-auto w-24 md:h-[640px] md:w-[590px] max-w-none object-cover"
-                  ></Image>
+                  />
                   <div
                     className={classNames(
                       "inset-0 opacity-25 duration-300 before:absolute before:bottom-0 before:left-[-546px] before:right-0 before:top-[-148px] before:z-10 before:bg-texture  after:bottom-[28px] after:left-0 after:right-[-434px] after:top-0 after:z-10 after:bg-texture md:absolute md:transition-opacity",
@@ -86,11 +83,11 @@ const GovernanceSection = () => {
                   className={classNames(
                     "left-8 top-8 w-[590px] p-4 transition-[transform,opacity] md:absolute md:p-0",
                     activeItem === index
-                      ? "md:translate-x-0 md:opacity-100"
+                      ? "md:translate-x-0 md:opacity-100 z-50"
                       : "md:translate-x-4 md:opacity-0",
                   )}
                 >
-                  <p className="text-sm uppercase text-primary md:text-lg">
+                  <p className="text-sm uppercase text-primary md:text-lg ">
                     {member.title}
                   </p>
                   <p className="text-lg font-bold md:text-white md:text-4xl">
@@ -115,7 +112,7 @@ const GovernanceSection = () => {
                       className={classNames(
                         "absolute bottom-0 p-4 text-primary-500 hover:text-primary-300",
                         activeItem === index
-                          ? "md:translate-x-0 md:opacity-100"
+                          ? "md:translate-x-0 md:opacity-100 z-50"
                           : "md:translate-x-4 md:opacity-0",
                       )}
                     >

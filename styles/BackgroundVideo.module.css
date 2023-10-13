@@ -1,0 +1,17 @@
+/* BackgroundVideo.module.css */
+
+.videoContainer {
+  width: 100%;
+  height: 100vh; /* Fixed height for the video */
+  overflow: hidden;
+  position: relative;
+}
+
+.video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
