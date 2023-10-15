@@ -11,7 +11,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { SelectedPage } from "@/types/pageTypes";
 
-import ButtonLink from "@/components/links/ButtonLink";
+import NavbarLink from "../links/NavbarLink";
 import { buttonVariants } from "../widgets/Button";
 
 type Props = {
@@ -72,9 +72,9 @@ const TopNavbar = ({
                     ))
                   : ""}
 
-                <ButtonLink path={SelectedPage.Contact}>
+                <NavbarLink path={SelectedPage.Contact}>
                   <p className="text-lg">Contact Us</p>
-                </ButtonLink>
+                </NavbarLink>
               </div>
             </div>
             <button

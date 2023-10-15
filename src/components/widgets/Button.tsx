@@ -1,7 +1,8 @@
-import { cn } from "@/lib/utils";
+import * as React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { Loader2 } from "lucide-react";
-import * as React from "react";
+
+import { cn } from "@/lib/utils";
 
 /* Template from joschan21/similarity-api on Github */
 
@@ -22,6 +23,14 @@ const buttonVariants = cva(
         ghost:
           "text-gray-500 text-lg hover:text-primary-500 border border-transparent hover:border-primary-500",
         link: "bg-transparent underline-offset-4 hover:underline text-slate-100 hover:bg-transparent",
+        background: [
+          "px-5 py-2",
+          "bg-primary-500",
+          "rounded-none",
+          "text-white",
+          "hover:bg-primary-400",
+          "hover:text-primary-500",
+        ],
       },
       size: {
         default: "h-10 py-2 px-4",

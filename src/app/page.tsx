@@ -2,10 +2,9 @@ import React from "react";
 import { Metadata } from "next";
 
 import { SelectedPage } from "@/types/pageTypes";
-import { ContactUs } from "@/components/sections/contact/ContactUs";
 
-import Home from "./(home)/Home";
 import Navbar from "@/components/navbars/Navbar";
+import HomeSection from "@/components/sections/home/HomeSection";
 
 export const metadata: Metadata = {
   title: "Aggies Inspire | Home",
@@ -26,10 +25,10 @@ export default function HomePage() {
         navbarLinks={navbarLinks}
         miniNavbarLinks={miniNavbarLinks}
       />
+
       <div>
         {/* Taken from (sub-sections) under the home root */}
-        <Home />
-        <ContactUs />
+        <HomeSection />
       </div>
     </section>
   );

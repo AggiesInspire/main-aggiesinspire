@@ -1,7 +1,7 @@
 import React from "react";
 
 import Heading from "./Heading";
-import OurContent from "./OurContent";
+import OurContent from "./MediaContent";
 import Youtube from "./Youtube";
 
 const HomeMedia = () => {

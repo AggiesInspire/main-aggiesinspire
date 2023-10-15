@@ -1,6 +1,6 @@
 import React from "react";
 import Heading from "./Heading";
-import Content from "./Content";
+import Content from "./AboutContent";
 
 type Props = {};
 
