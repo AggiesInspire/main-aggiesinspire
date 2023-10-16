@@ -14,6 +14,7 @@ const BackgroundVideo = () => {
           playsInline
           loop
           muted
+          preload="metadata"
           className={`${styles.video}  brightness-65`}
         >
           <source src="/videos/backgroundVideo.mp4" type="video/mp4" />

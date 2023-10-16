@@ -5,6 +5,7 @@ import BackgroundVideo from "@/components/sections/home/BackgroundVideo";
 import BackgroundDescription from "./BackgroundDescription";
 import Partners from "./Partners";
 import MediaContent from "./MediaContent";
+import QuickNavigation from "./QuickNavigation";
 
 import { ContactUs } from "../contact/ContactUs";
 
@@ -23,6 +24,7 @@ const HomeSection = () => {
         <BackgroundDescription />
       </section>
       <div className="bg-gradient-to-b from-slate-950 to-primary-500">
+        <QuickNavigation />
         <Partners />
         <MediaContent />
         <ContactUs />

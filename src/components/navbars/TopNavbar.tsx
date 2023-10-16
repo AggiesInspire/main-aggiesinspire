@@ -51,7 +51,6 @@ const TopNavbar = ({
               priority={true}
               width={220}
               height={250}
-              layout="fixed"
               onClick={handleNavigation}
               className={"cursor-pointer"}
             />
