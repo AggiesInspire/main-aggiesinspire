@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
-import useMediaQuery from "@/hooks/useMediaQuery";
-
 type Props = {
   slides: any;
   autoSlide: boolean;
@@ -17,7 +15,6 @@ const Carousel = ({
   autoSlide = false,
   autoSlideInterval = 3000,
 }: Props) => {
-  const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
   const [currentIndex, setCurrentIndex] = useState(0);
   const prevSlide = () =>
     setCurrentIndex((currentIndex) =>
@@ -40,12 +37,9 @@ const Carousel = ({
       >
         {slides.map((slide: any, slideIndex: number) => (
           <Image
-            priority={true}
-            placeholder="blur"
-            key={slideIndex}
-            className={`${isAboveMediumScreens ? "rounded-xl" : "rounded-md"} `}
+            key={slide.image}
             src={slide.image}
-            alt="Background image"
+            alt="Media Content"
             width={3000}
             height={2500}
           />
@@ -53,10 +47,10 @@ const Carousel = ({
       </div>
       <div className="group absolute inset-0 flex items-center justify-between p-4">
         <button className="hidden group-hover:block p-1 rounded-full bg-white">
-          <BsChevronCompactLeft onClick={prevSlide} size={30} />
+          <BsChevronCompactLeft onClick={prevSlide} size={25} />
         </button>
         <button className="hidden group-hover:block p-1 rounded-full bg-white">
-          <BsChevronCompactRight onClick={nextSlide} size={30} />
+          <BsChevronCompactRight onClick={nextSlide} size={25} />
         </button>
       </div>
 
@@ -65,10 +59,9 @@ const Carousel = ({
           {slides.map((_: any, i: number) => (
             <div
               key={i}
-              className={`cursor-pointer transition-all w-3 h-3 bg-white rounded-full ${
-                currentIndex == i ? "p-2" : "opacity-50"
+              className={`cursor-pointer transition-all md:w-3 md:h-3 w-1 h-1 bg-white rounded-full ${
+                currentIndex == i ? "md:p-2 p-1" : "opacity-50"
               } `}
-              onClick={() => window.open(_.url, "_blank")}
             />
           ))}
         </div>

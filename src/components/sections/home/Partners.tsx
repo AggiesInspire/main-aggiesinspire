@@ -1,66 +1,48 @@
 "use client";
 import React from "react";
-import PartnerCCF from "@/images/partners/CCFLogo.png";
-import PartnerTheBaseChicago from "@/images/partners/TheBaseChicagoLogo.png";
-import useMediaQuery from "@/hooks/useMediaQuery";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-const HomeSponsorSection = () => {
-  const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
+import LargeHeading from "@/components/text-formatting/LargeHeading";
 
-  const partners = [
-    {
-      name: "The Base Chicago",
-      image: (
-        <a href="https://www.thebasechi.org/" target="_blank">
-          <Image alt="ccf-partner" src={PartnerTheBaseChicago} height="80" />
-        </a>
-      ),
-    },
-    {
-      name: "Chicago Chess Foundation",
-      image: (
-        <a href="https://chicagochessfoundation.org/" target="_blank">
-          <Image alt="ccf-partner" src={PartnerCCF} height="75" />
-        </a>
-      ),
-    },
-  ];
+import { partners } from "@/data/images/sections/home/partners";
+
+const Partners = () => {
+  const router = useRouter();
+  const handleNavigation = (link: string) => {
+    router.push(link);
+  };
   return (
-    <section id="home-partners">
-      {/* Sponsors */}
-      <div>
-        {isAboveMediumScreens && (
-          <div
-            className="h-[150px] w-full pt-10 pb-20 bg-gradient-to-r
-          from-primary-400
-          to-primary-100
-          via-gray-200
-          animate-gradient-x"
-          >
-            <div className="mx-auto w-11/12">
-              <div className="flex w-3/5 items-center justify-between gap-5">
-                <a
-                  href="https://www.guidestar.org/profile/shared/c5ebdd2f-9aca-481f-9b2a-5439fc5f8318"
-                  target="_blank"
-                >
-                  <img
-                    alt="guidestar"
-                    src="https://widgets.guidestar.org/TransparencySeal/10021967"
-                    width="79"
-                    height="79"
-                  />
-                </a>
-                {partners.map((partner) => (
-                  <div key={partner.name}>{partner.image} </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+    <div className="py-8 w-full ">
+      <div className="mx-auto w-39/40 border border-white"></div>
+      <div className="container pt-5">
+        <LargeHeading className="w-39/40 mx-auto">Partners</LargeHeading>
+        <div className="mx-auto mt-10 h-[450px] w-[97.5vw] overflow-x-auto  overflow-y-hidden no-scrollbar">
+          <ul className="whitespace-nowrap ">
+            {partners.map((partner, index) => (
+              <li
+                key={"Partner " + index}
+                className="relative mx-5 inline-block h-[400px] w-[350px]"
+              >
+                <Image
+                  alt={`${partner.image}`}
+                  src={partner.image}
+                  width={350}
+                  height={350}
+                  onClick={() => handleNavigation(partner.websiteUrl)}
+                  className="cursor-pointer hover:animate-pulse "
+                />
+                <div className="text-primary-500 font-medium text-xl py-1">
+                  {partner.name}
+                </div>
+                <div className="text-primary-100">{partner.mission}</div>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default HomeSponsorSection;
+export default Partners;

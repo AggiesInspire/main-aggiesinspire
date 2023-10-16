@@ -11,6 +11,10 @@ module.exports = {
         460: "28.75rem",
         520: "32.5rem",
       },
+      width: {
+        "19/20": "95%",
+        "39/40": "97.5%",
+      },
       colors: {
         "gray-20": "#F8F4EB",
         "gray-50": "#EFE6E6",
@@ -25,6 +29,14 @@ module.exports = {
         "primary-500": "#FF6B66",
         "secondary-400": "#FFCD5B",
         "secondary-500": "#FFC132",
+      },
+      grayscale: {
+        25: "25%",
+        50: "50%",
+      },
+      brightness: {
+        60: "60%",
+        65: "65%",
       },
       backgroundImage: {
         texture:

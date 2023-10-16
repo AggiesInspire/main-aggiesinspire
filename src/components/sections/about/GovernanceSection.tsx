@@ -83,7 +83,7 @@ const GovernanceSection = () => {
                   className={classNames(
                     "left-8 top-8 w-[590px] p-4 transition-[transform,opacity] md:absolute md:p-0",
                     activeItem === index
-                      ? "md:translate-x-0 md:opacity-100 z-50"
+                      ? "md:translate-x-0 md:opacity-100 z-10 "
                       : "md:translate-x-4 md:opacity-0",
                   )}
                 >

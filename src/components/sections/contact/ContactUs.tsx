@@ -26,9 +26,7 @@ export const ContactUs = () => {
   return (
     <section
       id="contactus"
-      className={` bg-gray-20 ${
-        isAboveSmallScreens ? "pb-32 pt-24" : "pb-16 pt-24"
-      } `}
+      className={`${isAboveSmallScreens ? "pb-32 pt-24" : "pb-16 pt-24"} `}
     >
       <motion.div className="mx-auto w-11/12">
         {/* Header */}

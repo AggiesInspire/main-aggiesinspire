@@ -9,7 +9,13 @@ const BackgroundVideo = () => {
   return (
     <section>
       <div className={`${styles.videoContainer}`}>
-        <video autoPlay playsInline loop muted className={`${styles.video}`}>
+        <video
+          autoPlay
+          playsInline
+          loop
+          muted
+          className={`${styles.video}  brightness-65`}
+        >
           <source src="/videos/backgroundVideo.mp4" type="video/mp4" />
         </video>
       </div>

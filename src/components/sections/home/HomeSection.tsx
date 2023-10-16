@@ -3,6 +3,8 @@ import { SelectedPage } from "@/types/pageTypes";
 import TopNavbar from "@/components/navbars/TopNavbar";
 import BackgroundVideo from "@/components/sections/home/BackgroundVideo";
 import BackgroundDescription from "./BackgroundDescription";
+import Partners from "./Partners";
+import MediaContent from "./MediaContent";
 
 import { ContactUs } from "../contact/ContactUs";
 
@@ -20,7 +22,11 @@ const HomeSection = () => {
         <BackgroundVideo />
         <BackgroundDescription />
       </section>
-      <ContactUs />
+      <div className="bg-gradient-to-b from-slate-950 to-primary-500">
+        <Partners />
+        <MediaContent />
+        <ContactUs />
+      </div>
     </section>
   );
 };

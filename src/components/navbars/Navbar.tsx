@@ -59,7 +59,7 @@ const Navbar = ({ navbarLinks, miniNavbarLinks, appearScroll }: Props) => {
 
       {scrolled ? (
         <motion.nav
-          className={`bg-primary-100 backdrop-filter backdrop-blur-lg bg-opacity-80 fixed z-10 w-full py-6 h-20 ${flexBetween}`}
+          className={`bg-primary-100 backdrop-filter backdrop-blur-lg bg-opacity-80 fixed z-40 w-full py-6 h-20 ${flexBetween}`}
         >
           <div className={`${flexBetween}  mx-auto w-11/12`}>
             <div className={`${flexBetween} w-full gap-16`}>

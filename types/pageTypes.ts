@@ -12,3 +12,12 @@ export interface HomeType {
   name: string;
   selectedpage: SelectedPage;
 }
+
+export type PartnerType = {
+  name: string;
+  websiteUrl: string;
+  image: string;
+  mission: string;
+  description?: string;
+  url?: string;
+};

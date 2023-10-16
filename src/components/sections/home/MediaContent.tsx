@@ -4,71 +4,25 @@ import React from "react";
 
 import useMediaQuery from "@/hooks/useMediaQuery";
 
-import { MediaType } from "../../../../types/mediaPageTypes";
-import { SelectedPage } from "../../../../types/pageTypes";
-
 import LargeHeading from "@/components/text-formatting/LargeHeading";
 import Carousel from "@/components/widgets/Carousel";
+import mediaSeries from "@/data/images/sections/home/mediaSeries";
 
-import inspiringSeries from "@/images/InspiringSeriesGraphic.jpeg";
-import collegeAdviceSeries from "@/images/CollegeAdviceSeries.jpeg";
-import professionInsightsSeries from "@/images/ProfessionalInsightsSeries.jpeg";
-
-const OurContent = () => {
-  const slides: Array<MediaType> = [
-    {
-      name: "Inspiring Series",
-      description:
-        "Current college students and professionals give an overview of their personal backgrounds and field of choice. The videos are generally between 2-5 minutes long",
-      selectedpage: SelectedPage.Youtube,
-      url: "https://www.youtube.com/watch?v=F5MFewOymjo&list=PLws4wxg02B74Ux98f7g8LSnL__V-EZkZY",
-      image: inspiringSeries,
-    },
-    {
-      name: "Professional Insights Series",
-      description:
-        "Current professionals give an overview of their specialty, what they enjoy and not not enjoy about it, and their analysis of the direction of the field or current unique problems that needs to be solved.",
-      selectedpage: SelectedPage.Youtube,
-      url: "https://www.youtube.com/watch?v=w7MMKakAOiM&list=PLws4wxg02B77u0uOoyyxQ5DusOiV82vAB",
-      image: professionInsightsSeries,
-    },
-    {
-      name: "College Advice - Major Specific Series",
-      description:
-        "Senior or Junior designated college students give specific advice to those who have similar career aspirations.",
-      selectedpage: SelectedPage.Youtube,
-      url: "https://www.youtube.com/watch?v=vKfUwQRP298&list=PLws4wxg02B74QnsopI9H5mJdQCUWJPC5A",
-      image: collegeAdviceSeries,
-    },
-  ];
+const MediaContent = () => {
   const isAboveSmallScreens = useMediaQuery("(min-width:768px)");
 
-  const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
   return (
     <section id="home-media:content" className="w-full">
-      <div className={`mx-auto ${isAboveSmallScreens ? "pb-28" : "pb-10"}`}>
-        <div>
-          <div
-            className="flex justify-between"
-            style={{ alignItems: "center" }}
-          >
-            <div
-              style={{
-                flex: 1,
-                backgroundColor: "#FF9595",
-                height: "3px",
-              }}
-            />
-            <LargeHeading size={"xs"} className="py-20 pl-2">
-              OUR CONTENT
-            </LargeHeading>
-          </div>
-          <div
-            className={` ${isAboveMediumScreens ? "" : "h-[815] xs:h-[390px]"}`}
-          >
-            <div className="shadow-lg rounded-sm">
+      <div className={`mx-auto sm:pb-28 pb-10`}>
+        <div className="pt-5">
+          <div className="mx-auto w-39/40 border border-white"></div>
+          <LargeHeading className="py-10 w-39/40 mx-auto">
+            Inspiring Media
+          </LargeHeading>
+          <div>
+            <div className="shadow-lg rounded-sm w-39/40 mx-auto">
               <Carousel
-                slides={slides}
+                slides={mediaSeries}
                 autoSlide={isAboveSmallScreens ? true : false}
                 autoSlideInterval={3000}
               />
@@ -80,4 +34,4 @@ const OurContent = () => {
   );
 };
 
-export default OurContent;
+export default MediaContent;
