@@ -6,7 +6,7 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 
 import LargeHeading from "@/components/text-formatting/LargeHeading";
 import Carousel from "@/components/widgets/Carousel";
-import mediaSeries from "@/data/images/sections/home/mediaSeries";
+import mediaSeries from "@/objects/images/sections/home/mediaSeries";
 
 const MediaContent = () => {
   const isAboveSmallScreens = useMediaQuery("(min-width:768px)");

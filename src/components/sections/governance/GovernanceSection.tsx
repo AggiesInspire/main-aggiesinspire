@@ -9,7 +9,7 @@ import LargeHeading from "@/components/text-formatting/LargeHeading";
 import Paragraph from "@/components/text-formatting/Paragraph";
 import { paragraphVariants } from "@/components/text-formatting/Paragraph";
 
-import { boardMembers } from "@/data/images/boardMembers";
+import { boardMembers } from "@/objects/images/boardMembers";
 
 const GovernanceSection = () => {
   // board members
@@ -76,13 +76,13 @@ const GovernanceSection = () => {
           {/* Title of the Section */}
           <LargeHeading
             size={"xl"}
-            className="mx-auto w-11/12 justify-between py-5 "
+            className="mx-auto w-39/40 justify-between py-5 "
           >
             Board of Directors
           </LargeHeading>
 
           {/* Standard for the body */}
-          <div className="flex flex-col md:flex mx-auto w-11/12 justify-between p-2">
+          <div className="flex flex-col md:flex mx-auto w-39/40 justify-between p-2">
             {/* Change body based on size */}
             {/* map out the list of boardmembers with respective position */}
             {board.map((member) => (

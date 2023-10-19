@@ -3,6 +3,7 @@
 .videoContainer {
   width: 100%;
   height: 100vh; /* Fixed height for the video */
+  min-height: 768px;
   overflow: hidden;
   position: relative;
 }

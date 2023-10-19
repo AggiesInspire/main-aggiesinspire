@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import LargeHeading from "@/components/text-formatting/LargeHeading";
 
-import quickNavigation from "@/data/images/sections/home/quickNavigation";
+import quickNavigation from "@/objects/links/sections/home/quickNavigation";
 
 const QuickNavigation = () => {
   return (
@@ -27,7 +27,7 @@ const QuickNavigation = () => {
             <div className={` px-5 py-5 md:pb-2 pb-5 `} key={item.title}>
               <LargeHeading size={"xs"}>{item.heading}</LargeHeading>
               <div className="py-3 text-white underline text-lg hover:no-underline">
-                <a href={item.link} target="_blank">
+                <a href={`${item.link}`} target="_blank">
                   {item.anchorDescription}
                 </a>
               </div>

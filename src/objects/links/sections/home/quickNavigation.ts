@@ -12,12 +12,12 @@ const quickNavigation = [
     title: "Philosophy",
     heading: "There is an inherent philosophy in our organization",
     link: "https://www.guidestar.org/profile/shared/c5ebdd2f-9aca-481f-9b2a-5439fc5f8318",
-    anchorDescription: "Click here to uncover it",
+    anchorDescription: "Our philosophy",
   },
 
   {
     title: "Join",
-    heading: "Join us in our quest to inspire others to be greater",
+    heading: "Please join us in our quest to inspire to be greater",
     link: SelectedPage.Contact,
     anchorDescription: "Join us",
   },

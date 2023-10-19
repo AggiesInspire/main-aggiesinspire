@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import Script from "next/script";
-import Footer from "@/components/sections/footer/Footer";
 
 export default function RootLayout({
   children,
@@ -10,6 +9,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* prevent scroll restoration so every time refresh goes to top of the screen */}
+        <Script
+          dangerouslySetInnerHTML={{
+            __html: `history.scrollRestoration = "manual"`,
+          }}
+        />
+
         {/* Givebutter donations */}
 
         <Script
@@ -52,8 +58,6 @@ export default function RootLayout({
       <body>
         <div>
           <main className="flex flex-col">{children}</main>
-
-          <Footer />
         </div>
       </body>
     </html>

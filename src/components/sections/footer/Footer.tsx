@@ -3,11 +3,14 @@ import Image from "next/image";
 import { SocialIcon } from "react-social-icons";
 
 import FootLink from "@/components/links/FooterLink";
-import { SelectedPage } from "@/types/pageTypes";
 
 import Logo from "@/images/Logo.png";
 
-const Footer = () => {
+type Props = {
+  bgColor?: string;
+};
+
+const Footer = ({ bgColor = "bg-primary-300" }: Props) => {
   const medias = [
     { title: "Youtube", link: "https://www.youtube.com/@aggiesinspire" },
   ];
@@ -44,8 +47,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-primary-300 py-16">
-      <div className="justify-content mx-auto w-5/6 gap-16 md:flex">
+    <footer className={`${bgColor} py-16`}>
+      <div className="justify-content mx-auto w-39/40 gap-16 md:flex">
         <div className="mt-16 basis-1/2 md:mt-0">
           <Image alt="logo" src={Logo} />
           <p className="my-5"></p>

@@ -9,7 +9,7 @@ const BackgroundDescription = () => {
     <div
       className={classNames(
         "absolute",
-        "bottom-0 h-[45%] md:w-3/5 w-11/12 left-1/2 transform p-4 -translate-x-1/2 center ",
+        "bottom-0 xs:h-[45%] h-[35%] md:w-3/5 w-11/12 left-1/2 transform p-4 -translate-x-1/2 center ",
         "text-white",
       )}
     >

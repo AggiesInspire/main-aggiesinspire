@@ -7,15 +7,16 @@ import Logo from "@/images/Logo.png";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { useState } from "react";
 import HeaderLink from "@/components/links/HeaderLink";
-import Link from "next/link";
 import Image from "next/image";
 import { SelectedPage } from "@/types/pageTypes";
+import { NavbarTypes } from "@/types/navbarTypes";
 
 import NavbarLink from "../links/NavbarLink";
-import { buttonVariants } from "../widgets/Button";
+
+import Dropdown from "../widgets/Dropdown";
 
 type Props = {
-  navbarLinks?: any;
+  navbarLinks?: Array<NavbarTypes>;
   miniNavbarLinks?: any;
   transparent?: boolean;
 };
@@ -42,7 +43,7 @@ const TopNavbar = ({
         } backdrop-filter  absolute z-50 w-full py-6 h-20 ${flexBetween}`}
       >
         <motion.div className="h-1 bg-gray-500 top-0 left-0 right-0 origin-left z-50" />
-        <div className={`${flexBetween} mx-auto w-11/12`}>
+        <div className={`${flexBetween} mx-auto w-39/40`}>
           <div className={`${flexBetween} w-full gap-16`}>
             {/* Left Side */}
             <Image
@@ -60,14 +61,13 @@ const TopNavbar = ({
               <div className={`${flexBetween} gap-8 text-sm`}>
                 {/* map out navbarlinks on md above screens */}
                 {navbarLinks
-                  ? navbarLinks.map((link: any) => (
-                      <Link
-                        href={link.link}
-                        className={buttonVariants({ variant: "destructive" })}
-                        key={link.title}
-                      >
-                        {link.title}
-                      </Link>
+                  ? navbarLinks.map((item, index) => (
+                      <Dropdown
+                        key={item.title + index}
+                        title={item.title}
+                        dropDown={item.dropDown}
+                        bgColor={transparent ? "bg-transparent" : "bg-gray-20"}
+                      />
                     ))
                   : ""}
 

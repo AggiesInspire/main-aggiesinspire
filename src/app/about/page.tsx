@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import AboutSection from "@/components/sections/about/AboutSection";
 
+import Footer from "@/components/sections/footer/Footer";
+import TopNavbar from "@/components/navbars/TopNavbar";
 import Navbar from "@/components/navbars/Navbar";
-import About from "@/app/about/(sub-sections)/About";
 import { SelectedPage } from "@/types/pageTypes";
+import navbarLinks from "@/objects/links/navbars/navbarLinks";
 
 export const metadata: Metadata = {
   title: "Aggies Inspire | About Us",
@@ -10,24 +13,25 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  const navbarLinks = [{ title: "About", link: SelectedPage.About }];
   const miniNavbarLinks = [
     { title: "Home", link: SelectedPage.Home },
     { title: "About", link: SelectedPage.About },
   ];
 
   return (
-    <div>
+    <div className="bg-blue-100">
+      <TopNavbar navbarLinks={navbarLinks} miniNavbarLinks={miniNavbarLinks} />
       <Navbar
         appearScroll={200}
         navbarLinks={navbarLinks}
         miniNavbarLinks={miniNavbarLinks}
+        textColor="text-primary-1000"
+        bgColor="bg-white"
       />
       <section id="about" className="md:h-full md:pb-0">
-        <div>
-          <About />
-        </div>
+        <AboutSection />
       </section>
+      <Footer />
     </div>
   );
 }

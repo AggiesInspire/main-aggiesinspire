@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 import LargeHeading from "@/components/text-formatting/LargeHeading";
 
-import { partners } from "@/data/images/sections/home/partners";
+import { partners } from "@/objects/images/sections/home/partners";
 
 const Partners = () => {
   const router = useRouter();

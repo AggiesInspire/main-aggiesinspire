@@ -1,24 +1,40 @@
 "use client";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { motion, useSpring, useScroll } from "framer-motion";
-import Logo2 from "@/images/Logo2.png";
-import useMediaQuery from "@/hooks/useMediaQuery";
 import { useEffect, useState, useRef } from "react";
-import HeaderLink from "@/components/links/HeaderLink";
 import Link from "next/link";
 import Image from "next/image";
-import { SelectedPage } from "@/types/pageTypes";
+import {
+  Bars3Icon,
+  XMarkIcon,
+  ChevronDownIcon,
+} from "@heroicons/react/24/solid";
+import { motion, useSpring, useScroll } from "framer-motion";
 
+import Logo2 from "@/images/Logo2.png";
+import useMediaQuery from "@/hooks/useMediaQuery";
+import { SelectedPage } from "@/types/pageTypes";
+import { NavbarTypes } from "@/types/navbarTypes";
+
+import HeaderLink from "@/components/links/HeaderLink";
 import NavbarLink from "../links/NavbarLink";
-import { buttonVariants } from "../widgets/Button";
+
+import Dropdown from "../widgets/Dropdown";
 
 type Props = {
-  navbarLinks?: any;
+  navbarLinks?: Array<NavbarTypes>;
   miniNavbarLinks?: any;
   appearScroll: number;
-  onTop?: boolean;
+  bgColor?: string;
+  bgProgressColor?: string;
+  textColor?: string;
 };
-const Navbar = ({ navbarLinks, miniNavbarLinks, appearScroll }: Props) => {
+const Navbar = ({
+  navbarLinks,
+  miniNavbarLinks,
+  appearScroll,
+  bgProgressColor = "bg-gray-500",
+  bgColor = "bg-primary-100",
+  textColor = "text-gray-500",
+}: Props) => {
   // /* makes sure that if the page is refreshed the navbar style is correct based on scrollY position */
   const flexBetween = "flex items-center justify-between";
 
@@ -53,18 +69,18 @@ const Navbar = ({ navbarLinks, miniNavbarLinks, appearScroll }: Props) => {
   return (
     <>
       <motion.div
-        className="fixed h-1 bg-gray-500 top-0 left-0 right-0 origin-left z-50"
+        className={`fixed h-1 ${bgProgressColor} top-0 left-0 right-0 origin-left z-50`}
         style={{ scaleX }}
       />
 
       {scrolled ? (
         <motion.nav
-          className={`bg-primary-100 backdrop-filter backdrop-blur-lg bg-opacity-80 fixed z-40 w-full py-6 h-20 ${flexBetween}`}
+          className={`${bgColor} backdrop-filter backdrop-blur-lg opacity-90 fixed z-40 w-full py-6 h-20 ${flexBetween}`}
         >
-          <div className={`${flexBetween}  mx-auto w-11/12`}>
+          <div className={`${flexBetween}  mx-auto w-39/40`}>
             <div className={`${flexBetween} w-full gap-16`}>
               {/* Left Side */}
-              <Link href={SelectedPage.Home}>
+              <Link href={`${SelectedPage.Home}`}>
                 <Image alt="logo" src={Logo2} width={80} height={80} />
               </Link>
 
@@ -72,17 +88,17 @@ const Navbar = ({ navbarLinks, miniNavbarLinks, appearScroll }: Props) => {
               {isAboveMediumScreens ? (
                 <div className={`${flexBetween} w-full`}>
                   <div className={`${flexBetween} gap-8 text-sm`}></div>
-                  <div className={`${flexBetween} gap-8 text-sm`}>
+                  <div className={`${flexBetween} gap-8 text-sm `}>
                     {/* map out navbarlinks on md above screens */}
                     {navbarLinks
-                      ? navbarLinks.map((link: any) => (
-                          <Link
-                            href={link.link}
-                            className={buttonVariants({ variant: "ghost" })}
-                            key={link.title}
-                          >
-                            {link.title}
-                          </Link>
+                      ? navbarLinks.map((item, index) => (
+                          <Dropdown
+                            key={item.title + index}
+                            title={item.title}
+                            dropDown={item.dropDown}
+                            bgColor={bgColor}
+                            textColor={textColor}
+                          />
                         ))
                       : ""}
 

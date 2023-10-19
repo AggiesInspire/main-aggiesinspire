@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import GovernanceSection from "@/components/sections/governance/GovernanceSection";
 import { SelectedPage } from "@/types/pageTypes";
+import navbarLinks from "@/objects/links/navbars/navbarLinks";
 
 import TopNavbar from "@/components/navbars/TopNavbar";
 import Navbar from "@/components/navbars/Navbar";
@@ -11,7 +12,6 @@ export const metadata: Metadata = {
 };
 
 export default function GovernancePage() {
-  const navbarLinks = [{ title: "About", link: SelectedPage.About }];
   const miniNavbarLinks = [
     { title: "Home", link: SelectedPage.Home },
     { title: "About", link: SelectedPage.About },

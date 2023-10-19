@@ -1,6 +1,6 @@
 import React from "react";
-import CountUp from "../text-formatting/CountUp";
-import InViewEffect from "../text-formatting/InViewEffect";
+import InViewEffect from "@/components/text-formatting/InViewEffect";
+import NumberOdometer from "@/components/text-formatting/NumberOdometer";
 
 type Props = {
   title: string;
@@ -8,13 +8,13 @@ type Props = {
   icon: any;
 };
 
-const ChannelStatistics = ({ title, statistic, icon }: Props) => {
+const YoutubeStatisticsWrapper = ({ title, statistic, icon }: Props) => {
   return (
     <div className="container w-full">
-      <div className="bg-primary-100 shadow-sm rounded-lg p-5">
+      <div className="">
         <div className="flex space-x-4 items-center h-24">
           <div>
-            <div className="bg-primary-200 rounded-full w-12 h-12 text-primary-500 flex justify-center items-center">
+            <div className="bg-blue-200 rounded-full w-12 h-12 text-red-800 flex justify-center items-center">
               {icon}
             </div>
           </div>
@@ -22,7 +22,7 @@ const ChannelStatistics = ({ title, statistic, icon }: Props) => {
             <div className="text-gray-400">{title}</div>
             <div className="text-2xl font-bold text-gray-900">
               <InViewEffect>
-                <CountUp end={statistic} />
+                <NumberOdometer numberValue={statistic!} />
               </InViewEffect>
             </div>
           </div>
@@ -32,4 +32,4 @@ const ChannelStatistics = ({ title, statistic, icon }: Props) => {
   );
 };
 
-export default ChannelStatistics;
+export default YoutubeStatisticsWrapper;

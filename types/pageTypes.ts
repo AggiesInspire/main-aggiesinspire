@@ -1,8 +1,11 @@
 export enum SelectedPage {
   Home = "/",
-  About = "/about/",
-  Operations = "/operations",
+  /* About drop down menu*/
+  About = "/about/", // aka Overview
   Governance = "/governance",
+  Philosophy = "/philosophy", // aka Our Philosphy
+
+  Operations = "/operations",
   Media = "/media",
   Contact = "/contact",
   Youtube = "www.youtube.com/aggiesinspire",

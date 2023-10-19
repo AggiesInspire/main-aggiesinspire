@@ -7,7 +7,7 @@ import Image from "next/image";
 import classNames from "classnames";
 
 import { SelectedPage } from "@/types/pageTypes";
-import { board } from "@/data/images/sections/aboutGovernanceSection/board";
+import { board } from "@/objects/images/sections/aboutGovernanceSection/board";
 
 import useMediaQuery from "@/hooks/useMediaQuery";
 import LargeHeading from "@/components/text-formatting/LargeHeading";
@@ -41,12 +41,21 @@ const GovernanceSection = () => {
   const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
 
   return (
-    <section id="governance" className="mx-auto bg-gray-50 pt-20 pb-40">
-      <div className="md:px-10 pb-14">
-        <LargeHeading size={"xl"}>Governance</LargeHeading>
+    <section id="governance" className="mx-auto pt-20 pb-40">
+      <div className="mx-auto pb-14 md:w-39/40 w-11/12">
+        <div className="border border-red-950"></div>
+        <div className="grid md:grid-cols-2 grid-cols-1 md:pb-10">
+          <LargeHeading className="text-gray-800 pt-10" size={"lg"}>
+            Governance
+          </LargeHeading>
+
+          <LargeHeading className="text-gray-800 pt-10" size={"sm"}>
+            We are bound by the desire to inact positive change.
+          </LargeHeading>
+        </div>
       </div>
       <div className="flex flex-col h-full w-full items-center justify-center">
-        <div className="w-[1200px] max-w-full">
+        <div className="w-[1500px] max-w-full">
           <ul
             ref={wrapperRef}
             className="group flex flex-col gap-3 md:gap-[1.5%] md:h-[640px] md:flex-row "
@@ -55,7 +64,7 @@ const GovernanceSection = () => {
               <li
                 onClick={() => setActiveItem(index)}
                 aria-current={activeItem === index}
-                key={member.name}
+                key={member.name + index}
                 className={classNames(
                   "relative md:flex-none flex justify-between md:cursor-pointer md:w-[14%] md:first:w-[10%] md:last:w-[10%] overflow-hidden md:[&[aria-current='true']]:w-[48%] bg-primary-200 rounded-2xl",
                   "md:[transition:width_var(--transition,200ms_ease-in)]",
@@ -69,7 +78,7 @@ const GovernanceSection = () => {
                     alt={member.name}
                     width={500}
                     height={640}
-                    className="absolute right-0 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-auto w-24 md:h-[640px] md:w-[590px] max-w-none object-cover"
+                    className="absolute right-0 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-auto w-24 md:h-[740px] md:w-[690px] max-w-none object-cover"
                   />
                   <div
                     className={classNames(
@@ -99,7 +108,7 @@ const GovernanceSection = () => {
                     <p>
                       <Link
                         className="hover:text-white text-sm"
-                        href={SelectedPage.Governance}
+                        href={`${SelectedPage.Governance}`}
                       >
                         More Details
                       </Link>
@@ -116,7 +125,9 @@ const GovernanceSection = () => {
                           : "md:translate-x-4 md:opacity-0",
                       )}
                     >
-                      <Link href={SelectedPage.Governance}>More Details</Link>
+                      <Link href={`${SelectedPage.Governance}`}>
+                        More Details
+                      </Link>
                     </p>
                   ) : (
                     <></>

@@ -3,7 +3,9 @@ import React from "react";
 import type { Metadata } from "next";
 import { ContactUs } from "@/components/sections/contact/ContactUs";
 import { SelectedPage } from "@/types/pageTypes";
+import navbarLinks from "@/objects/links/navbars/navbarLinks";
 import TopNavbar from "@/components/navbars/TopNavbar";
+import Footer from "@/components/sections/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Aggies Inspire | Contact Us",
@@ -11,7 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const navbarLinks = [{ title: "About", link: SelectedPage.About }];
   const miniNavbarLinks = [
     { title: "Home", link: SelectedPage.Home },
     { title: "About", link: SelectedPage.About },
@@ -27,6 +28,7 @@ export default function ContactPage() {
       <section id="contact" className=" bg-gray-20 md:h-full md:pb-0">
         <ContactUs />
       </section>
+      <Footer />
     </div>
   );
 }
