@@ -6,6 +6,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      scale: {
+        "-100": "-1",
+      },
       height: {
         1300: "81.25rem",
         460: "28.75rem",
@@ -18,6 +21,7 @@ module.exports = {
       colors: {
         "gray-20": "#F8F4EB",
         "gray-50": "#EFE6E6",
+        "gray-75": "#FFF0D7",
         "gray-100": "#DFCCCC",
         "gray-500": "#5E0000",
         primary: "var(--color-primary)",

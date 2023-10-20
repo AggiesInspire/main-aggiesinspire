@@ -18,7 +18,7 @@ export default function GovernancePage() {
   ];
 
   return (
-    <>
+    <div className="bg-gray-20">
       <Navbar
         appearScroll={250}
         navbarLinks={navbarLinks}
@@ -27,7 +27,7 @@ export default function GovernancePage() {
       <TopNavbar
         navbarLinks={navbarLinks}
         miniNavbarLinks={miniNavbarLinks}
-        transparent={false}
+        transparent={true}
       />
       <section
         id="governance"
@@ -35,6 +35,6 @@ export default function GovernancePage() {
       >
         <GovernanceSection />
       </section>
-    </>
+    </div>
   );
 }

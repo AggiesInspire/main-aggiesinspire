@@ -1,6 +1,6 @@
 "use client";
 // this section is optimized as of 10/10/23
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import { LazyMotion, m, domAnimation } from "framer-motion";
 
 import { DisableAnimationOnMobile } from "@/components/modify-children/DisableAnimationOnMobile";
@@ -95,11 +95,12 @@ const GovernanceSection = () => {
                     className={`flex flex-col justify-between md:order-${member.imageIndexMedium} order-${member.imageIndex}`}
                     key={member.imageIndex}
                   >
-                    <Image
+                    <CldImage
                       alt={member.position.title}
                       src={member.position.url}
                       height={height}
                       width={width}
+                      sizes="50w"
                       loading="eager"
                       className="mx-auto rounded-md object-cover"
                     />

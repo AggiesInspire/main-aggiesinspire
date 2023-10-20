@@ -19,7 +19,7 @@ const Dropdown = ({
   textColor = "text-primary-500",
   bgColor = "bg-white",
 }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);

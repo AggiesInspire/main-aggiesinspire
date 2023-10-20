@@ -1,5 +1,6 @@
+"use client";
 import React from "react";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 
 import LargeHeading from "@/components/text-formatting/LargeHeading";
 
@@ -15,12 +16,13 @@ const Heading = () => {
           States. Our mission is to inspire to pursue greater.
         </LargeHeading>
       </div>
-      <Image
-        src="https://res.cloudinary.com/main-aggiesinspire/image/upload/v1697666280/home/cindy-liu-toinspire_ph1lp0"
+      <CldImage
+        src="/home/cindy-liu-toinspire_ph1lp0"
         alt="to-inspire-cindy-liu"
         width={3000}
         height={1000}
         className="pt-20"
+        sizes="100w"
         priority={true}
       />
     </section>

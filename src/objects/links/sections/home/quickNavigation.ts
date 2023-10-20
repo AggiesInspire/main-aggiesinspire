@@ -11,7 +11,7 @@ const quickNavigation = [
   {
     title: "Philosophy",
     heading: "There is an inherent philosophy in our organization",
-    link: "https://www.guidestar.org/profile/shared/c5ebdd2f-9aca-481f-9b2a-5439fc5f8318",
+    link: SelectedPage.Philosophy,
     anchorDescription: "Our philosophy",
   },
 

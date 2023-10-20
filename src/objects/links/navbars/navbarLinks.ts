@@ -4,6 +4,7 @@ import { NavbarTypes } from "@/types/navbarTypes";
 const navbarLinks: Array<NavbarTypes> = [
   {
     title: "About",
+    isDropDown: true,
     dropDown: [
       {
         title: "Overview",
@@ -11,7 +12,7 @@ const navbarLinks: Array<NavbarTypes> = [
       },
       {
         title: "Our Philosophy",
-        link: SelectedPage.About,
+        link: SelectedPage.Philosophy,
       },
       {
         title: "Governance",

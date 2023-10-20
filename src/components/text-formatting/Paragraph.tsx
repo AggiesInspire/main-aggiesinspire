@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 export const paragraphVariants = cva(
   /* This dark: refers to dark mode */
   /* max-w-prose for readibility */
-  "mt-8 text-sm text-gray-500 mb-2 text-left",
+  "mt-8 text-sm text-black mb-2 text-left",
   {
     variants: {
       size: {
@@ -18,7 +18,7 @@ export const paragraphVariants = cva(
     defaultVariants: {
       size: "default",
     },
-  }
+  },
 );
 
 interface ParagraphProps
@@ -36,7 +36,7 @@ const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(
         {children}
       </p>
     );
-  }
+  },
 );
 
 Paragraph.displayName = "Paragraph";

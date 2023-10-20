@@ -1,23 +1,18 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-import Link from "next/link";
 import Image from "next/image";
-import {
-  Bars3Icon,
-  XMarkIcon,
-  ChevronDownIcon,
-} from "@heroicons/react/24/solid";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { motion, useSpring, useScroll } from "framer-motion";
-
-import Logo2 from "@/images/Logo2.png";
+import { useRouter } from "next/navigation";
+import Logo from "@/images/Logo.png";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { SelectedPage } from "@/types/pageTypes";
 import { NavbarTypes } from "@/types/navbarTypes";
 
-import HeaderLink from "@/components/links/HeaderLink";
 import NavbarLink from "../links/NavbarLink";
 
 import Dropdown from "../widgets/Dropdown";
+import SidebarDropdown from "../widgets/SidebarDropdown";
 
 type Props = {
   navbarLinks?: Array<NavbarTypes>;
@@ -38,9 +33,12 @@ const Navbar = ({
   // /* makes sure that if the page is refreshed the navbar style is correct based on scrollY position */
   const flexBetween = "flex items-center justify-between";
 
+  const router = useRouter();
+
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
   const { scrollYProgress } = useScroll();
+
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -48,17 +46,28 @@ const Navbar = ({
   });
   const [scrolled, setScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  /* see if home-video id exists for navbar formatting */
+
+  const toggleMenu = () => {
+    setIsMenuToggled(!isMenuToggled);
+
+    if (!isMenuToggled) {
+      document.body.classList.add("overflow-y-hidden");
+    } else {
+      document.body.classList.remove("overflow-y-hidden");
+    }
+  };
 
   const onScroll = () => {
     if (window.scrollY <= appearScroll) {
-      setScrolled(false);
-    } else if (window.scrollY > lastScrollY) {
       setScrolled(false);
     } else {
       setScrolled(true);
     }
     setLastScrollY(window.scrollY);
+  };
+
+  const handleNavigation = () => {
+    router.push(SelectedPage.Home);
   };
 
   useEffect(() => {
@@ -75,14 +84,22 @@ const Navbar = ({
 
       {scrolled ? (
         <motion.nav
-          className={`${bgColor} backdrop-filter backdrop-blur-lg opacity-90 fixed z-40 w-full py-6 h-20 ${flexBetween}`}
+          className={`${
+            isMenuToggled ? "bg-primary-200" : bgColor
+          } backdrop-filter backdrop-blur-lg fixed z-40 w-full py-6 h-20 ${flexBetween}`}
         >
           <div className={`${flexBetween}  mx-auto w-39/40`}>
             <div className={`${flexBetween} w-full gap-16`}>
               {/* Left Side */}
-              <Link href={`${SelectedPage.Home}`}>
-                <Image alt="logo" src={Logo2} width={80} height={80} />
-              </Link>
+              <Image
+                alt="logo"
+                src={Logo}
+                priority={true}
+                width={220}
+                height={250}
+                onClick={handleNavigation}
+                className={"cursor-pointer"}
+              />
 
               {/* Right Side */}
               {isAboveMediumScreens ? (
@@ -91,15 +108,19 @@ const Navbar = ({
                   <div className={`${flexBetween} gap-8 text-sm `}>
                     {/* map out navbarlinks on md above screens */}
                     {navbarLinks
-                      ? navbarLinks.map((item, index) => (
-                          <Dropdown
-                            key={item.title + index}
-                            title={item.title}
-                            dropDown={item.dropDown}
-                            bgColor={bgColor}
-                            textColor={textColor}
-                          />
-                        ))
+                      ? navbarLinks.map((item, index) =>
+                          item.isDropDown ? (
+                            <Dropdown
+                              key={item.title + index}
+                              title={item.title}
+                              dropDown={item.dropDown!}
+                              bgColor={bgColor}
+                              textColor={textColor}
+                            />
+                          ) : (
+                            <div></div>
+                          ),
+                        )
                       : ""}
 
                     <NavbarLink path={SelectedPage.Contact}>
@@ -107,11 +128,14 @@ const Navbar = ({
                     </NavbarLink>
                   </div>
                 </div>
+              ) : isMenuToggled ? (
+                <div className="text-primary-500 p-2">
+                  <button onClick={toggleMenu}>
+                    <XMarkIcon className="h-6 w-6 text-primary-500" />
+                  </button>
+                </div>
               ) : (
-                <button
-                  className="  bg-primary-500 p-2"
-                  onClick={() => setIsMenuToggled(!isMenuToggled)}
-                >
+                <button className="bg-primary-500 p-2" onClick={toggleMenu}>
                   <Bars3Icon className="h-6 w-6 text-white" />
                 </button>
               )}
@@ -124,20 +148,15 @@ const Navbar = ({
 
       {/* Mobile Menu Mode */}
       {!isAboveMediumScreens && isMenuToggled && (
-        <div className="fixed bottom-0 right-0 z-50 h-full w-[220px] bg-primary-100 drop-shadow-xl ">
+        <div
+          className={`fixed bottom-0 pt-20 right-0 z-30 h-full w-full bg-primary-200 drop-shadow-xl `}
+        >
           {/* Close Icon */}
-          <div className="flex justify-end p-12">
-            <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
-              <XMarkIcon className="h-6 w-6 text-gray-400" />
-            </button>
-          </div>
 
           {/* Menu Items */}
-          <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-            {miniNavbarLinks.map((link: any) => (
-              <HeaderLink path={link.link} key={link.title}>
-                {link.title}
-              </HeaderLink>
+          <div className="flex flex-col gap-10 text-2xl">
+            {navbarLinks!.map((link: NavbarTypes, index) => (
+              <SidebarDropdown key={link.title + index} navbarLink={link} />
             ))}
           </div>
         </div>

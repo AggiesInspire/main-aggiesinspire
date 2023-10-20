@@ -1,6 +1,7 @@
 export type NavbarTypes = {
   title: string;
-  dropDown: Array<{
+  isDropDown: boolean;
+  dropDown?: Array<{
     title: string;
     link: any;
   }>;

@@ -14,6 +14,7 @@ import { NavbarTypes } from "@/types/navbarTypes";
 import NavbarLink from "../links/NavbarLink";
 
 import Dropdown from "../widgets/Dropdown";
+import SidebarDropdown from "../widgets/SidebarDropdown";
 
 type Props = {
   navbarLinks?: Array<NavbarTypes>;
@@ -33,6 +34,16 @@ const TopNavbar = ({
 
   const handleNavigation = () => {
     router.push(SelectedPage.Home);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuToggled(!isMenuToggled);
+
+    if (!isMenuToggled) {
+      document.body.classList.add("overflow-y-hidden");
+    } else {
+      document.body.classList.remove("overflow-y-hidden");
+    }
   };
 
   return (
@@ -56,52 +67,61 @@ const TopNavbar = ({
               className={"cursor-pointer"}
             />
             {/* Right Side */}
-            <div className={`${desktopFlexBetween} w-full`}>
-              <div className={`${flexBetween} gap-8 text-sm`}></div>
-              <div className={`${flexBetween} gap-8 text-sm`}>
-                {/* map out navbarlinks on md above screens */}
-                {navbarLinks
-                  ? navbarLinks.map((item, index) => (
-                      <Dropdown
-                        key={item.title + index}
-                        title={item.title}
-                        dropDown={item.dropDown}
-                        bgColor={transparent ? "bg-transparent" : "bg-gray-20"}
-                      />
-                    ))
-                  : ""}
 
-                <NavbarLink path={SelectedPage.Contact}>
-                  <p className="text-lg">Contact Us</p>
-                </NavbarLink>
+            {isAboveMediumScreens ? (
+              <div className={`${desktopFlexBetween} w-full`}>
+                <div className={`${flexBetween} gap-8 text-sm`}></div>
+                <div className={`${flexBetween} gap-8 text-sm`}>
+                  {/* map out navbarlinks on md above screens */}
+                  {navbarLinks
+                    ? navbarLinks.map((item, index) =>
+                        item.isDropDown ? (
+                          <Dropdown
+                            key={item.title + index}
+                            title={item.title}
+                            dropDown={item.dropDown!}
+                            bgColor={
+                              transparent ? "bg-transparent" : "bg-gray-20"
+                            }
+                          />
+                        ) : (
+                          <div></div>
+                        ),
+                      )
+                    : ""}
+
+                  <NavbarLink path={SelectedPage.Contact}>
+                    <p className="text-lg">Contact Us</p>
+                  </NavbarLink>
+                </div>
               </div>
-            </div>
-            <button
-              className="md:hidden bg-primary-500 p-2"
-              onClick={() => setIsMenuToggled(!isMenuToggled)}
-            >
-              <Bars3Icon className="h-6 w-6 text-white" />
-            </button>
+            ) : isMenuToggled ? (
+              <div className="text-primary-500 p-2">
+                <button onClick={toggleMenu}>
+                  <XMarkIcon className="h-6 w-6 text-primary-500" />
+                </button>
+              </div>
+            ) : (
+              <button
+                className="md:hidden bg-primary-500 p-2"
+                onClick={toggleMenu}
+              >
+                <Bars3Icon className="h-6 w-6 text-white" />
+              </button>
+            )}
           </div>
         </div>
       </nav>
 
       {/* Mobile Menu Mode */}
       {!isAboveMediumScreens && isMenuToggled && (
-        <div className="fixed bottom-0 right-0 z-50 h-full w-[250px] bg-gray-200 backdrop-blur-md bg-opacity-75 rounded-l drop-shadow-xl ">
+        <div className="fixed bottom-0 pt-20 right-0 z-30 h-full w-full bg-primary-200 drop-shadow-xl ">
           {/* Close Icon */}
-          <div className="flex justify-end p-12">
-            <button onClick={() => setIsMenuToggled(!isMenuToggled)}>
-              <XMarkIcon className="h-6 w-6 text-gray-400" />
-            </button>
-          </div>
 
           {/* Menu Items */}
-          <div className="ml-[33%] flex flex-col gap-10 text-2xl">
-            {miniNavbarLinks.map((link: any) => (
-              <HeaderLink path={link.link} key={link.title}>
-                {link.title}
-              </HeaderLink>
+          <div className="flex flex-col gap-10 text-2xl">
+            {navbarLinks!.map((link: NavbarTypes, index) => (
+              <SidebarDropdown key={link.title + index} navbarLink={link} />
             ))}
           </div>
         </div>

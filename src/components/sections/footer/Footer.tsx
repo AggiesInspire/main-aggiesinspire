@@ -47,10 +47,10 @@ const Footer = ({ bgColor = "bg-primary-300" }: Props) => {
   ];
 
   return (
-    <footer className={`${bgColor} py-16`}>
+    <footer className={`${bgColor} pb-96 pt-24`}>
       <div className="justify-content mx-auto w-39/40 gap-16 md:flex">
         <div className="mt-16 basis-1/2 md:mt-0">
-          <Image alt="logo" src={Logo} />
+          <Image alt="logo" src={Logo} height={250} width={220} />
           <p className="my-5"></p>
           <p>© 2023 Aggies Inspire Inc. All Rights Reserved.</p>
         </div>
