@@ -1,7 +1,5 @@
 import "@/styles/globals.css";
-import Footer from "@/components/ui/sections/Footer";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
   children,
@@ -11,8 +9,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* prevent scroll restoration so every time refresh goes to top of the screen */}
+        <Script
+          dangerouslySetInnerHTML={{
+            __html: `history.scrollRestoration = "manual"`,
+          }}
+        />
+
+        {/* Givebutter donations */}
+
         <Script
           id="givemebutterdonation"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `window.Givebutter =
               window.Givebutter ||
@@ -29,15 +37,27 @@ export default function RootLayout({
         <link rel="icon" href="/aggiesInspire.ico" />
         <title>Aggies Inspire | Home</title>
       </head>
+
+      {/* Google analytics with partytown */}
+
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        strategy="worker"
+      />
+
+      <Script id="google-analytics" strategy="worker">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', "${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}");
+        `}
+      </Script>
+
       <body>
         <div>
-          <main className="flex flex-col">
-            {children}
-
-            <Analytics />
-          </main>
-
-          <Footer />
+          <main className="flex flex-col">{children}</main>
         </div>
       </body>
     </html>

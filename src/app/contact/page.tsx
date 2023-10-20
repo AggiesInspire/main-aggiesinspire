@@ -1,38 +1,34 @@
 import React from "react";
 
 import type { Metadata } from "next";
-import ContactSection from "@/app/contact/ContactSection";
-import { PageWrapper } from "@/components/PageWrapper";
-import { SelectedPage } from "@/components/types";
-import Navbar from "@/components/ui/navbars/Navbar";
+import { ContactUs } from "@/components/sections/contact/ContactUs";
+import { SelectedPage } from "@/types/pageTypes";
+import navbarLinks from "@/objects/links/navbars/navbarLinks";
+import TopNavbar from "@/components/navbars/TopNavbar";
+import Footer from "@/components/sections/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Aggies Inspire | Contact Us",
-  description: "",
+  description: "Contact us for volunteering opportunties!",
 };
 
-export default function Contact() {
-
-  const navbarLinks = [
-  {title: "About",
-  link: SelectedPage.About},
-  ]
+export default function ContactPage() {
   const miniNavbarLinks = [
-  {title: "Home",
-  link: SelectedPage.Home},
-  {title: "About",
-  link: SelectedPage.About}]
+    { title: "Home", link: SelectedPage.Home },
+    { title: "About", link: SelectedPage.About },
+  ];
 
   return (
-  <div>
-    
-   <PageWrapper>
-   <Navbar appearScroll={0} onTop={true} navbarLinks={navbarLinks} miniNavbarLinks={miniNavbarLinks}/>
-    <section id="contact" className=" bg-gray-20 md:h-full md:pb-0">
-        <ContactSection />
-    </section>
-
-    </PageWrapper>
-  </div>
+    <div>
+      <TopNavbar
+        transparent={false}
+        navbarLinks={navbarLinks}
+        miniNavbarLinks={miniNavbarLinks}
+      />
+      <section id="contact" className=" bg-gray-20 md:h-full md:pb-0">
+        <ContactUs />
+      </section>
+      <Footer />
+    </div>
   );
 }

@@ -1,11 +1,12 @@
 # base image
 
-FROM node:16-alpine
+FROM node:18-alpine
 
 WORKDIR /app
 
 COPY package.json yarn.lock ./ 
 RUN yarn install --frozen-lockfile
+RUN yarn run partytown
 
 COPY ./ ./
 

@@ -6,14 +6,22 @@ module.exports = {
   },
   theme: {
     extend: {
+      scale: {
+        "-100": "-1",
+      },
       height: {
         1300: "81.25rem",
         460: "28.75rem",
         520: "32.5rem",
       },
+      width: {
+        "19/20": "95%",
+        "39/40": "97.5%",
+      },
       colors: {
         "gray-20": "#F8F4EB",
         "gray-50": "#EFE6E6",
+        "gray-75": "#FFF0D7",
         "gray-100": "#DFCCCC",
         "gray-500": "#5E0000",
         primary: "var(--color-primary)",
@@ -23,19 +31,29 @@ module.exports = {
         "primary-300": "#F3D7D0",
         "primary-400": "#FAC2B4",
         "primary-500": "#FF6B66",
+        "primary-1000": "#32101B",
         "secondary-400": "#FFCD5B",
         "secondary-500": "#FFC132",
       },
+      grayscale: {
+        25: "25%",
+        50: "50%",
+      },
+      brightness: {
+        60: "60%",
+        65: "65%",
+      },
       backgroundImage: {
         texture:
-          "url(/public/static/images/backgrounds/glow-texture.png), radial-gradient(var(--color-primary), transparent 70%)",
+          "url(/static/images/backgrounds/glow-texture.png), radial-gradient(var(--color-primary), transparent 70%)",
       },
 
       display: ["group-hover"],
 
       fontFamily: {
         dmsans: ["DM Sans", "sans-serif"],
-        montserrat: ["Montserrat", "sans-serif"],
+        montserrat: ["var(--font-montserrat)"],
+        heading: ["var(--font-manrope)"],
       },
       content: {},
       animation: {
