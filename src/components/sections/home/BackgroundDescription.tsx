@@ -1,10 +1,18 @@
+"use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 import classNames from "classnames";
 
 import LargeHeading from "@/components/text-formatting/LargeHeading";
 import { Button } from "@/components/widgets/Button";
 
+import { SelectedPage } from "@/types/pageTypes";
+
 const BackgroundDescription = () => {
+  const router = useRouter();
+  const handleNavigation = () => {
+    router.push(SelectedPage.About);
+  };
   return (
     <div
       className={classNames(
@@ -16,7 +24,11 @@ const BackgroundDescription = () => {
       <LargeHeading size={"lg"} className="pb-5 text-white">
         Inspiring the Next Generation To Pursue Greater
       </LargeHeading>
-      <Button variant={"background"} className="pb-5">
+      <Button
+        variant={"background"}
+        onClick={handleNavigation}
+        className="pb-5"
+      >
         Learn about us
       </Button>
     </div>
