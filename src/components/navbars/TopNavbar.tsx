@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import Logo from "@/images/Logo.png";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { useState } from "react";
-import HeaderLink from "@/components/links/HeaderLink";
 import Image from "next/image";
 import { SelectedPage } from "@/types/pageTypes";
 import { NavbarTypes } from "@/types/navbarTypes";

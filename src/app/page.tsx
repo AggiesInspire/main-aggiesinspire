@@ -1,8 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
 
-import { SelectedPage } from "@/types/pageTypes";
-
 import navbarLinks from "@/objects/links/navbars/navbarLinks";
 
 import Navbar from "@/components/navbars/Navbar";
