@@ -11,6 +11,7 @@ export default function RootLayout({
       <head>
         {/* prevent scroll restoration so every time refresh goes to top of the screen */}
         <Script
+          id={"prevent-scroll-restoration"}
           dangerouslySetInnerHTML={{
             __html: `history.scrollRestoration = "manual"`,
           }}
@@ -20,7 +21,6 @@ export default function RootLayout({
 
         <Script
           id="givemebutterdonation"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `window.Givebutter =
               window.Givebutter ||

@@ -18,14 +18,9 @@ import SidebarDropdown from "../widgets/SidebarDropdown";
 
 type Props = {
   navbarLinks?: Array<NavbarTypes>;
-  miniNavbarLinks?: any;
   transparent?: boolean;
 };
-const TopNavbar = ({
-  navbarLinks,
-  miniNavbarLinks,
-  transparent = true,
-}: Props) => {
+const TopNavbar = ({ navbarLinks, transparent = true }: Props) => {
   const flexBetween = "flex items-center justify-between";
   const desktopFlexBetween = "md:flex hidden items-center justify-between";
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
@@ -85,7 +80,7 @@ const TopNavbar = ({
                             }
                           />
                         ) : (
-                          <div></div>
+                          <div key={"empty"}></div>
                         ),
                       )
                     : ""}

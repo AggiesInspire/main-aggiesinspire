@@ -23,7 +23,7 @@ const NumberOdometer = ({ numberValue }: Props) => {
     setTimeout(() => {
       setodometervalue(numberValue);
     }, 200);
-  }, []);
+  }, [numberValue]);
   return <Odometer value={odometervalue} theme="default" />;
 };
 
