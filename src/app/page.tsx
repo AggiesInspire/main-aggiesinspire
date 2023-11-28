@@ -15,18 +15,12 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  const miniNavbarLinks = [
-    { title: "Home", link: SelectedPage.Home },
-    { title: "About", link: SelectedPage.About },
-  ];
-
   return (
     <section id="home" className=" bg-gray-20 md:h-full md:pb-0">
-      <TopNavbar navbarLinks={navbarLinks} miniNavbarLinks={miniNavbarLinks} />
+      <TopNavbar navbarLinks={navbarLinks} />
       <Navbar
         appearScroll={500}
         navbarLinks={navbarLinks}
-        miniNavbarLinks={miniNavbarLinks}
         bgColor="bg-primary-1000"
         textColor="text-primary-500"
       />
