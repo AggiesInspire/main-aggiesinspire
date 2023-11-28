@@ -3,7 +3,6 @@ import { use } from "react";
 
 import getYoutubeChannelStatistics from "@/requests/getYoutubeChannelStatistics";
 import YoutubeStatisticsWrapper from "./YoutubeStatisticsWrapper";
-import LargeHeading from "@/components/text-formatting/LargeHeading";
 
 async function channelStatistics() {
   let { subscriberCount, viewCount, videoCount } =
@@ -55,9 +54,8 @@ const YoutubeStatistics = () => {
     <section id="youtube-statistics">
       <div className="mx-auto grid grid-cols-3 sm:gap-10 gap-2">
         {statistics.map((statistic, index) => (
-          <div className="sm:pb-5 md:pb-0 py-2">
+          <div className="sm:pb-5 md:pb-0 py-2" key={statistic.title + index}>
             <YoutubeStatisticsWrapper
-              key={statistic.title + index}
               icon={statistic.icon}
               title={statistic.title}
               statistic={parseInt(statistic.statistic)}

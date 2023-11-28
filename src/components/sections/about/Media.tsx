@@ -1,7 +1,6 @@
 import LargeHeading from "@/components/text-formatting/LargeHeading";
 import Paragraph from "@/components/text-formatting/Paragraph";
-
-import YoutubeStatistics from "./YoutubeStatistics";
+import Youtube from "./Youtube";
 
 const Media = () => {
   return (
@@ -10,13 +9,8 @@ const Media = () => {
         Media
       </LargeHeading>
       <div className="border border-gray-200"></div>
-      <div className="flex flex-row justify-between">
-        {/* Put subscribers with title*/}
-        <LargeHeading className="py-10 text-gray-800" size={"xs"}>
-          Youtube
-        </LargeHeading>
-        <YoutubeStatistics />
-      </div>
+      {/* Put subscribers with title*/}
+      <Youtube />
       {/* insert Youtube component*/}
 
       <div className="border border-gray-200"></div>

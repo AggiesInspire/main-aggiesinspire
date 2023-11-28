@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import { motion, useSpring, useScroll } from "framer-motion";
@@ -16,7 +16,6 @@ import SidebarDropdown from "../widgets/SidebarDropdown";
 
 type Props = {
   navbarLinks?: Array<NavbarTypes>;
-  miniNavbarLinks?: any;
   appearScroll: number;
   bgColor?: string;
   bgProgressColor?: string;
@@ -24,7 +23,6 @@ type Props = {
 };
 const Navbar = ({
   navbarLinks,
-  miniNavbarLinks,
   appearScroll,
   bgProgressColor = "bg-gray-500",
   bgColor = "bg-primary-100",
@@ -57,23 +55,23 @@ const Navbar = ({
     }
   };
 
-  const onScroll = () => {
+  const handleNavigation = () => {
+    router.push(SelectedPage.Home);
+  };
+
+  const onScroll = useCallback(() => {
     if (window.scrollY <= appearScroll) {
       setScrolled(false);
     } else {
       setScrolled(true);
     }
     setLastScrollY(window.scrollY);
-  };
-
-  const handleNavigation = () => {
-    router.push(SelectedPage.Home);
-  };
+  }, [appearScroll]);
 
   useEffect(() => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, onScroll]);
 
   return (
     <>
@@ -118,7 +116,7 @@ const Navbar = ({
                               textColor={textColor}
                             />
                           ) : (
-                            <div></div>
+                            <div key={"empty-dropdown"}></div>
                           ),
                         )
                       : ""}

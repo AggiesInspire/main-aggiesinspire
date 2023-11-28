@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import Logo from "@/images/Logo.png";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { useState } from "react";
-import HeaderLink from "@/components/links/HeaderLink";
 import Image from "next/image";
 import { SelectedPage } from "@/types/pageTypes";
 import { NavbarTypes } from "@/types/navbarTypes";
@@ -18,14 +17,9 @@ import SidebarDropdown from "../widgets/SidebarDropdown";
 
 type Props = {
   navbarLinks?: Array<NavbarTypes>;
-  miniNavbarLinks?: any;
   transparent?: boolean;
 };
-const TopNavbar = ({
-  navbarLinks,
-  miniNavbarLinks,
-  transparent = true,
-}: Props) => {
+const TopNavbar = ({ navbarLinks, transparent = true }: Props) => {
   const flexBetween = "flex items-center justify-between";
   const desktopFlexBetween = "md:flex hidden items-center justify-between";
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
@@ -85,7 +79,7 @@ const TopNavbar = ({
                             }
                           />
                         ) : (
-                          <div></div>
+                          <div key={"empty"}></div>
                         ),
                       )
                     : ""}

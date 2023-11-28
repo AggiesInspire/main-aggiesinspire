@@ -66,15 +66,15 @@ const Rationale = () => {
             </LargeHeading>
             <Paragraph>
               Knowledge is imperative for decision making, especially when it
-              comes to one's future. There are many stories of one's who have
-              soul search for so long to finally found a profession that
-              matches. Among those searching who were fortunate to find the
+              comes to one&apos;s future. There are many stories of one&apos;s
+              who have soul search for so long to finally found a profession
+              that matches. Among those searching who were fortunate to find the
               profession that suits them, there was precious time lost
               throughout the journey. This can be an area that can negatively
               affect motivation through demoralization. Thus to decrease the
-              amount of "time lost", we hope to provide easily accessible
-              valuable information from those who are in the profession of one's
-              interest.
+              amount of &quot;time lost&quot;, we hope to provide easily
+              accessible valuable information from those who are in the
+              profession of one&apos;s interest.
             </Paragraph>
           </div>
         </div>
